@@ -1,0 +1,223 @@
+{
+    "add-token":"添加到钱包",
+    "addr":"在以下的地址中",
+    "all":"全部",
+    "approve":"授权",
+    "add-token-tip":"添加当前代币信息到metaMask（小狐狸）钱包中",
+    "add-to-wallet":"添加{coin}到钱包",
+    "add-lp":"添加{0}流动性",
+    "add":"添加",
+    "activities":"活动",
+
+    "balance":"余额",
+    "bridge":"桥梁",
+    "buy":"购买",
+    "burn":"烧掉",
+    "bind-waddr":"绑定取款地址",
+    "bind-waddr-tips":"您已绑定 {wbind} 份取款地址.，取款操作可能发送到任一个地址，请注意查收。或解除{ubind} 份取款地址",
+    "bridge-guide":"桥的指引",
+    "b-guide1":"请先点击选择一个NFT，并且选择一个币种。",
+    "b-guide2":"获取存款地址与绑定取款地址。",
+    "b-guide3":"购买NFT后，请检查是否有取款地址，如果有，请重新绑定上自己的取款地址。",
+    "beyond-limit":"超出金额限制后，交易时间会大幅增加，请耐心等待",
+    
+    "connect":"连接钱包",
+    "cancel":"取消",
+    "change-price":"更改出售信息",
+    "change-waddr":"更改取款地址",
+    "clear-waddr":"清空取款地址",
+    "correct-amount":"请输入正确的金额",
+    "correct-addr":"请确认取款地址是自己钱包的收款地址，并且确认地址是正确的。",
+    "copy":"复制到剪切板",
+    "copy-ok":"地址已经复制到剪切板！",
+    "copy-err":"抱歉，地址复制失败。",
+    "cpright1":"保留所有的权利",
+    "cpright2":"PlotBridge 网站与 pancake 无关",
+    "cpright3":"所有的第三方商标的权利属于他们自己",
+    "contact":"联系我们",
+    "contact1":"- Discord: <a href='https://discord.com/invite/xHC9fBfeVW' target='_blank'>https://discord.com/invite/xHC9fBfeVW</a> <br>- 电报: <a href='https://t.me/PlotBridge' target='_blank'>https://t.me/PlotBridge</a><br>- 推特: <a href='https://twitter.com/plot_bridge' target='_blank'>https://twitter.com/plot_bridge</a>",
+    "claim":"领取",
+    "con-failed":"连接失败",
+    "relink-wallet":"连接失败： 钱包网络发生改变，请重新连接。",
+    "con-f1":"进一步操作需要BSC钱包，",
+    "con-f2":"确保已安装MetaMask钱包或者其他BSC钱包，",
+    "con-f3":"或者，您可以通过您的浏览器官方插件商店安装MetaMask钱包。",
+
+    "deposit":"存款",
+    "desc":"描述",
+    "doc":"文档",
+    "data":"加载中......",
+    "destroy":"销毁NFT",
+    "dep-limit":"单次存款建议限额为",
+    "dep-rate":"存款费率",
+    "dep-minFee":"最小存款手续费",
+    "dep-addr":"获取{bcoin}的存款地址",
+    "dep-rebind":"该类型地址已经绑定了，请刷新页面后查看。",
+    "dp-xcc":"过桥存入XCC,赢取PBP奖励",
+    "destroy-tips":"在销毁之前，请确定在五分钟之内没有进行存取等相关操作。</br>销毁后，此NFT所绑定的存取款地址都会失效。</br>请确认是否销毁此NFT？",
+
+
+    "earn":"盈利",
+    "earned":"已赚取：",
+    "ending":"结束时间",
+
+    "function":"支持",
+    "force-w":"强制取款",
+    
+    "get":"你将会得到 :",
+    "getaddr":"该类型的存款地址已经没有了，请在discord或电报上联系我们。",
+    "guide-bridge":"桥的使用",
+    "guide-bridge1":"如何将 XCC 转换成币安智能链上的 WXCC",
+    "guide-bridge3":"如何将 WXCC 转换回 XCC",
+    "guide-bridge5":"旧版的代币不能用怎么办",
+    "guide-market":"NFT市场",
+    "guide-market1":"在市场中，您可以根据您的喜好购买NFT，也可以上架自己的NFT进行出售，目前支持用BNB和BUSD来出售或者购买NFT。",
+    "guide-wallet":"创建钱包",
+    "guide-wallet1":"操作指南：将 MetaMask 连接到币安智能链",
+    "guide-wallet2":"安装和设置 MetaMask",
+    "guide-wallet3":"首先下载适用于 Chrome、Brave、iOS 和 Android 的MetaMask。<br>- 接下来，创建一个钱包 <br>- 在安全的地方写下助记词（最好不要在连接互联网的设备上） <br>- 没有助记词，如果您的设备损坏或丢失，您的资金将无法恢复 <br>- 最后，按照屏幕上的说明确认您的助记词 <br>- 到这一步,您的钱包已准备好发送、存储和接收代币。",
+    "guide-wallet4":"自动配置钱包",
+    "guide-wallet5":"- 您可能会注意到刚创建好的钱包仍在以太坊网络链。它并不适用于币安智能链 ，如果不转换到币安智能链，可能会造成将资金发送到您实际上无法使用的地址而导致资金损失。<br>- 您可以通过访问<a href='https://bscscan.com' target='_blank'>币安链区块浏览器（bscscan.com）</a> 来快速配置币安智能链，进入<a href='https://bscscan.com' target='_blank'>币安链区块浏览器（bscscan.com）</a>首页后来到页面最下方右侧，您会看到一个有MetaMask图标并且写着Add BSC Network的按钮。 <br>- 点击这个按钮之后，会跳出MetaMask的添加网络页面，点击Approve,允许添加。这时，你已经完成了币安智能链的配置，并且可以在币安智能链上进行交易了。",
+    "guide-wallet6":"手动配置钱包",
+    "guide-wallet7":"- 如果您暂时无法访问币安链区块浏览器（bscscan.com），您也可以手动来配置币安智能链。 <br>- 我们需要点击设置来将钱包转到币安智能链。<br>- 在设置页面上，点击网络。<br>- 点击右上角的添加网络，手动添加币安智能链主网。<br>- Network Name: Binance Smart Chain <br>- New RPC URL: `https://bsc-dataseed.binance.org/` <br>- ChainID: 56  <br>- Symbol: BNB  <br>- Block Explorer URL: `https://bscscan.com` <br>- 当你设置完，点击保存返回到主页，你会发现：网络已经自动设置为您刚才设置的币安智能链，计价单位不再是ETH，而是BNB。<br>- 想了解所有最近的公告和更新，请与我们联系。",
+    "bsc":"BSC钱包地址",
+    
+    "home":"首页",
+    "home-title":"PlotBridge beta 版已上线，欢迎使用",
+    "home-news":[
+        {
+            "ts":"2022-06-02",
+            "msg":"关于活动——“存储XCC，获取奖励”，我们准备了一个简单的网页让参与者可以去查寻排名与数据。网址：https://xcc-mint.plotbridge.io"
+        },
+        {
+            "ts":"2022-05-31",
+            "msg":"我们初步支持了移动钱包连接。"
+        },
+        {
+            "ts":"2022-05-27",
+            "msg":"过桥存入XCC，赢取PBP奖励。详情请看 https://www.plotbridge.io/zh-cn/activities/crosspb/"
+        },
+       {
+            "ts":"2022-05-26",
+            "msg":"按照PBP发行方案，项目方于今日将桥30%的收益 0.24441 BNB 购买了 289k PBP 进行 燃烧销毁。"
+       },
+        {
+            "ts":"2022-05-13",
+            "msg":"销毁奖励开始，销毁包括燃烧W币和销毁PBT，操作完成后，将获得一定比例的PBP币"
+        },
+        {
+            "ts":"2022-05-06",
+            "msg":"质押奖励模块开放，初步开放的代币池包括：PBP-BNB Cake LP，PBP-WXCH Cake LP，PBP-WXCC Cake LP，PBP单币。欢迎加入质押，赢取奖励。"
+        },
+        {
+            "ts":"2022-04-28",
+            "msg":"提供了旧版PXCH-BUSD, PXCC-BUSD流动性的伙伴们，PBP奖励已空投到您的钱包地址，本次空投金额以2022年3月30日统计快照为准。"
+        },{
+            "ts":"2022-04-27",
+            "msg":"官方流动性已创建: PBP-BNB(30,000,000 PBP 对 20 BNB), WXCH-PBP 和 WXCC-PBP 流动性已添加到Pancake交易所。"
+        },{
+            "ts":"2022-04-27",
+            "msg":"PBP预售已完成: 共销售30,750,000 PBP，收到16.8756 BNB。"
+        }
+    ],
+    "home-note":"我们将很荣幸收到你们的反馈",
+
+    "inbsc":"在你的BSC钱包中",
+    "input-addr":"在下面输入你的取款地址：",
+    "input-price":"输入价格",
+    "input-desc":"输入描述",
+    "input-waddr":"输入你的钱包地址",
+    "id":"编号",
+    "img":"一切皆有可能。",
+    "insufficient-mint-balance":"当前余额不够铸造PBT. 请确保在当前连接的钱包中，至少有 {price} {token}",
+    "intoduction":"关于我们",
+    "intoduction1":"PlotBridge(PB)是连通时空证明类区块链网络（即常说的空间挖矿，如奇亚，韭菜）和成熟的智能区块链（如币安智能链）之间的桥梁。可使用PB将原生币如奇亚(XCH)，韭菜(XCC)转换成对应的代币如WXCH,WXCC。当然，也可以将代币转换回对应的原生币。<br>当前支持的智能链: <br>- 币安智能链(BSC)<br>当前支持的原生币种和对应的BSC代币: <br> ",
+    "into-all":["我们是谁?","我们遇到了什么问题?","PlotBridge 都做了些什么?","对用户的好处?","风险和解决方案","我们的支出和收益"],
+    "look-info":"请连接钱包",
+    "loading":"加载中......",
+    "lock-time":"锁定时间",
+    "locked1":"锁定中，请等待{time},",
+    "locked2":"或者强制解锁，放弃在本池获得的全部收益,并且重置锁定时间",
+
+    "market":"市场",
+    "mintPBT":"铸造PBT",
+    "mintable":"目前可以铸造的NFT数目：",
+    "my-nfts":"我的NFT",
+    "my-sale":"我的正在售卖的",
+    "max":"最大",
+
+    "none":"目前不可铸造NFT，请等待",
+    "no-waddr":"未绑定取款地址",
+    "no-redeem":"没有此兑换",
+    "no-desc":"没有描述",
+    "no-nft":"您未拥有NFT，请去市场购买，或者铸造NFT",
+    "no-selling":"目前没有发现正在售卖的NFT，或者自己铸造一个？",
+    "no-mysale":"您没有售卖NFT",
+    "not-start":"该功能将在预售结束后开启，请持续关注",
+    "not-start-pre":"预售预计在4月24日开启，预售所得的BNB将全部用于PancakeSwap上的PBP-BNB流动性，此官方流动性将至少锁定三个月。同时，我们将确保PBP初始发行价格会高于预售最高价格。",
+
+    "onSale":"正在售卖",
+    "old-balance":"旧代币余额",
+    "or":"或者",
+    "openNFT":"请先选择一个NFT",
+    
+    "price":"价格",   
+    "price-tips":"价格为空",
+    "presale":"预售",
+    "prepay":"预计支付",
+    "purchase":"可购买",
+    "p-end":"预售结束",
+    "pair-info":"{0}交易对信息",
+    "pb-events":"Plotbridge的活动",
+
+
+
+    "redeem":"兑换",
+    "rd-info":"您可将旧版代币以1:1比例兑换为新版代币",
+    "rd-rate":"发送 {amount} {oldsymbol}，可收到 {amount} {newsymbol}",
+    "road-map":"路线图",
+    "retreat":"从市场撤回",
+    "remainder":"剩余",
+    "redeem-notice":"没有可供兑换的代币",
+    "redeem-notice2":"兑换功能即将上线",
+
+
+    "save":"保存",
+    "select-coin":"选择币种",
+    "sell":"售卖",
+    "send-tomk":"发送到市场",
+    "send":"发送",
+    "set-sell-info":"设置价格与描述",
+    "swap":"交易",
+    "s-swap":"快速交易",
+    "s-swap1":"交易常用代币(交易由PancakeSwap实现，显示数据仅供参考)",
+    "setting":"设置",
+    "slippage":"滑动容限",
+    "slip-tip":"如果价格的不利变化超过此百分比，您的交易将恢复。",
+    "slip-fail":"您的交易可能失败",
+    "slip-max":"最大支出",
+    "slip-min":"最小收到",
+    "select":"请选择",
+    "stake":"质押",
+    "staking":"质押中",
+    "set-s-amount":"设置质押数量",
+    "stage":"阶段",
+    "stake-start":"质押奖励开始时间",
+    "sure":"确定",
+
+    "to-market":"去往市场",    
+    "tips-amount1":"数额过小，将什么都收不到呢！",
+    "tips-amount2":"数额过大，余额不够呢！",
+    "tips-waddr":"您已绑定了此币种的取款地址(另一个PBT)，不建议再绑定其他地址了",
+    "total-staked":"总质押",
+    "token-info":"{0} 代币信息",
+    "transfer":"转移",
+    "transfernft":"发送NFT到另一个地址",
+
+    "withdraw":"取款",
+    "w-rate":"取款费率",
+    "w-minFee":"最小取款手续费",
+    "w-limit":"单次取款建议限额为",
+    "w-addr":"取出的{bcoin}将会发送到以下的地址"
+
+}
