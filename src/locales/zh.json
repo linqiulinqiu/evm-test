@@ -63,7 +63,8 @@
 
     "function":"支持",
     "force-w":"强制取款",
-    
+   
+    "game":"游戏",
     "get":"你将会得到 :",
     "getaddr":"该类型的存款地址已经没有了，请在discord或电报上联系我们。",
     "guide-bridge":"桥的使用",

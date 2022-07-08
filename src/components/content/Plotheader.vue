@@ -17,7 +17,7 @@
         id="menu"
         :lg="{ span: 8, offset: 4 }"
         :md="{ span: 9, offset: 1 }"
-        :sm="9"
+        :sm="12"
         :xs="14"
       >
         <el-menu
@@ -102,6 +102,7 @@ export default {
         { tag: this.$t("market"), link: "/Market" },
         { tag: this.$t("swap"), link: "/Swap" },
         { tag: this.$t("stake"), link: "/Stake" },
+        { tag: this.$t("game"), link: "/Game" },
         { tag: this.$t("doc"), link: "/Doc" },
       ];
     },
@@ -216,7 +217,7 @@ export default {
 }
 #menu .el-menu--horizontal > .el-menu-item {
   height: 90px;
-  width: 16%;
+  width: 14%;
   font-size: 15px;
   font-weight: 700;
   padding: 15px 0px;

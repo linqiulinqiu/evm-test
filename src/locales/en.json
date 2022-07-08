@@ -63,7 +63,8 @@
     
     "function":"Function",
     "force-w":"Force withdraw",
-    
+   
+    "game":"Game",
     "get":"You will get：",
     "getaddr":"No address for this type of deposit,please contract us with discord or telegram. ",
     "guide-bridge":"How to run Bridge",
