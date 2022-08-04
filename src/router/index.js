@@ -5,7 +5,6 @@ import Bridge from "@/views/Bridge"
 import Market from "@/views/Market"
 import Swap from "@/views/Swap"
 import Stake from "@/views/Stake"
-import Game from "@/views/Game"
 import Doc from "@/views/Doc"
 import RoadMap from "../components/document/RoadMap"
 import Contact from "../components/document/Contact"
@@ -57,11 +56,6 @@ const routes = [{
     path: '/Presale',
     name: "presale",
     component: Presale
-  },
-  {
-    path: "/Game",
-    name: "Game",
-    component:Game
   },
   {
     path: '/Doc',

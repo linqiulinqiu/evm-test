@@ -1,15 +1,9 @@
 <template>
-  <el-col v-if="working">
+  <el-col v-if="working" :span="20" :offset="2">
     <p v-if="time_msg">{{ $t("stake-start") }}：{{ time_msg }}</p>
-    <ul v-if="stakeTokens.length">
+    <ul v-if="stakeTokens.length" class="stake-list">
       <li v-for="item in this.stakeTokens" :key="item.pid">
-        <el-col
-          class="stakeitem"
-          :lg="{ span: 7 }"
-          :md="{ span: 11 }"
-          :sm="{ span: 18 }"
-          :xs="{ span: 22 }"
-        >
+        <el-col class="stakeitem" :sapn="20">
           <StakeItem
             :stakeAddr="item.stakeAddr"
             :pid="item.pid"
@@ -95,8 +89,23 @@ export default {
 };
 </script>
 <style>
+/* .stake-list li {
+  background-color: #373943;
+  border: 1px solid #505850;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative; 
+  min-height: 170px;
+}
+.stake-list li:first-child {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.stake-list li:last-child {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+} */
 .stakeitem {
-  margin: 0 2%;
   font-size: 16px;
 }
 .not-work {

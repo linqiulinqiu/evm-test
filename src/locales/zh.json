@@ -27,6 +27,7 @@
     "change-waddr":"更改取款地址",
     "clear-waddr":"清空取款地址",
     "correct-amount":"请输入正确的金额",
+    "correct-waddr":"请输入正确的钱包地址",
     "correct-addr":"请确认取款地址是自己钱包的收款地址，并且确认地址是正确的。",
     "copy":"复制到剪切板",
     "copy-ok":"地址已经复制到剪切板！",

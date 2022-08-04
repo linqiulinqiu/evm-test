@@ -1,44 +1,46 @@
 <template>
   <el-col id="stake" :span="24">
     <el-col class="stake-main">
-      <h3>
-        {{ stk_symbol }} Pool
+      <el-col :span="4"> {{ stk_symbol }} Pool </el-col>
+      <el-col :span="2" v-if="locktime > 0">
+        <span class="mini-font">{{ $t("lock-time") }}</span>
+        <br />
+        <span class="num-font">{{ locktime_str }}</span>
+      </el-col>
+      <el-col :span="3">
+        <span class="mini-font">{{ $t("total-staked") }}</span>
+        <br />
+        <span class="num-font">{{ hformat(lpamount) }}</span>
+      </el-col>
+      <el-col :span="3">
+        <span class="mini-font">APR</span>
+        <br />
+        <span class="num-font">{{ apy }}%</span>
+      </el-col>
+      <el-col :span="3">
+        <span class="mini-font"> {{ $t("staking") }}</span>
+        <br />
+        <span class="num-font">{{ hformat(farm_amount) }}</span>
+        <span class="num-font" v-if="!isNaN(farm_amount) && farm_amount != 0">
+          ({{ hformat((farm_amount * 100) / lpamount) }}%)
+        </span>
+      </el-col>
+      <el-col :span="3">
+        <span class="mini-font">{{ $t("earned") }}</span>
+        <br />
+        <span class="num-font">{{ hformat(earned_amount) }} PBP</span>
+      </el-col>
+      <el-col :span="4">
         <el-button
           @click="refresh"
           icon="el-icon-refresh"
           class="refresh-btn"
           circle
         ></el-button>
-      </h3>
-      <el-row type="flex" justify="space-between" :gutter="20">
-        <el-col
-          :lg="{ span: 17 }"
-          :md="{ span: 17 }"
-          :sm="{ span: 18 }"
-          :xs="{ span: 18 }"
-        >
-          <p v-if="locktime > 0">{{ $t("lock-time") }}：{{ locktime_str }}</p>
-          <p>
-            {{ $t("total-staked") }}：
-            <span class="font">{{ hformat(lpamount) }}</span>
-          </p>
-          <p>
-            APR：<span class="font">{{ apy }}%</span>
-          </p>
-          <p>
-            {{ $t("staking") }}：
-            <span class="font">{{ hformat(farm_amount) }}</span>
-            <span class="font" v-if="!isNaN(farm_amount) && farm_amount != 0">
-              ({{ hformat((farm_amount * 100) / lpamount) }}%)
-            </span>
-          </p>
-          <span>
-            {{ $t("earned") }}：
-            <span class="font">{{ hformat(earned_amount) }}</span>
-            &nbsp;&nbsp; PBP
-          </span>
-        </el-col>
-        <el-col :span="6">
+        <el-button @click="fold" :icon="fold_btn" class="fold-btn"></el-button>
+      </el-col>
+      <el-col v-show="this.fold_col">
+        <el-col>
           <el-button
             class="stake-btn"
             v-if="can_withdraw"
@@ -46,7 +48,6 @@
             @click="claim"
             >{{ $t("claim") }}
           </el-button>
-
           <el-button @click="dia_set_amount = true" class="stake-btn">
             {{ $t("deposit") }}
           </el-button>
@@ -68,7 +69,7 @@
             <router-link :to="this.toswap">{{ $t("buy") }}</router-link>
           </el-button>
         </el-col>
-      </el-row>
+      </el-col>
     </el-col>
     <el-dialog :visible.sync="dia_set_amount" width="40vw">
       <el-card class="amount-ipt">
@@ -177,9 +178,19 @@ export default {
       isLp: false,
       lptoken: "",
       toswap: "/Swap",
+      fold_btn: "el-icon-arrow-down",
+      fold_col: false,
     };
   },
   methods: {
+    fold: function () {
+      this.fold_col = !this.fold_col;
+      if (this.fold_col) {
+        this.fold_btn = "el-icon-arrow-up";
+      } else {
+        this.fold_btn = "el-icon-arrow-down";
+      }
+    },
     hformat: function (val) {
       if (isNaN(val) || val == "") {
         return "";
@@ -333,12 +344,25 @@ export default {
     transform: rotate(1800deg);
   }
 }
-
+.fold-btn {
+  padding: 5px;
+  font-size: 24px;
+  color: #38f2af;
+  background: #373943;
+  border: none;
+}
+.fold-btn:hover,
+.fold-btn:focus {
+  color: #68bb68;
+  background: #373943;
+}
+.mini-font {
+  font-size: 10px;
+  color: #c0c2c0;
+}
 .stake-btn {
-  width: 60%;
-  margin-left: 0px !important;
-  margin-top: 10px;
-  min-width: 80px;
+  width: 80px;
+  margin: 10px 5px;
   color: #373943;
 }
 .stake-btn a {
@@ -359,18 +383,19 @@ export default {
 }
 .stake-main {
   background-color: #373943;
+  border: 1px solid #505850;
   border-radius: 20px;
   padding: 20px;
   box-sizing: border-box;
-  margin-top: 50px;
+  margin-top: 20px;
+  position: relative;
 }
 .amount-ipt .el-input {
   width: 50%;
   min-width: 200px;
   margin: 10px;
 }
-h2,
-h3 {
+h2 {
   text-align: center;
 }
 </style>

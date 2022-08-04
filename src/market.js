@@ -51,7 +51,6 @@ async function ListenToWCoin(commit) {
 async function connect(commit,provider) {
     try {
         bsc = await pbwallet.connect(provider, true)
-        console.log("bsc in js",bsc)
     } catch (e) {
         return e.message
     }
@@ -114,13 +113,14 @@ async function reBindFee() {
     return refee
 }
 async function bindAddr(waddr, pbtId, cointy, rebind) {
+    rebind = false
     const pbtid = ethers.BigNumber.from(pbtId)
-    const prefix = pbwallet.wcoin_info(cointy).prefix
+    const winfo = pbwallet.wcoin_info(cointy)
+    const prefix = winfo.prefix
     try {
         if ('ChiaUtils' in window) {
-            if (waddr.substr(0, 3) != prefix) return false
+            if (waddr.substr(0, prefix.length) != prefix) return false
             const addr = window.ChiaUtils.address_to_puzzle_hash(waddr)
-            console.log("addr_to_puzzle_hash",addr)
             let res = {}
             if (rebind) {
                 const fee = await bsc.ctrs.pbpuzzlehash.rebindFee()
@@ -147,6 +147,7 @@ async function bindAddr(waddr, pbtId, cointy, rebind) {
                 }
             } else {
                 res = await bsc.ctrs.pbpuzzlehash.bindWithdrawPuzzleHash(pbtid, cointy, addr)
+                console.log("bind res in marketJS",res)
                 return res
             }
         }

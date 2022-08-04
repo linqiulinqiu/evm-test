@@ -28,6 +28,7 @@
     "change-waddr":"Change withdraw address",
     "clear-waddr":"Clear withdraw address",
     "correct-amount":"Please enter the correct amount",
+    "correct-waddr":"Please enter the correct wallet address",
     "correct-addr":"Please confirm that the withdrawal address is the collection address of your wallet and that the address is correct.",
     "copy":"Copy to clipboard",
     "copy-ok":"The address has been copied to the clipboard!",

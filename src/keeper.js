@@ -49,7 +49,7 @@ async function nftBriefInfo(id) {
     } catch (e) {
         meta.loading = true
         meta.image = false
-        console.log("brief-info err", e, meta)
+        // console.log("brief-info err", e, meta)
     }
 
     const info = {
@@ -76,7 +76,9 @@ async function loadPbxs(pbtid) {
             withdrawAddr: String(withAddr)
         }
         for (let k in addrInfo) {
-            if (addrInfo[k].substr(3, 6) == "1qqqqq") {
+            const pre_length = winfo.prefix.length
+            console.log("pbxs info",pre_length,winfo.prefix)
+            if (addrInfo[k].substr(pre_length, 6) == '1qqqqq') {
                 addrInfo[k] = false
             }
         }
@@ -204,6 +206,8 @@ async function initMyList(bsc, commit) {
         myList = copyObj(myList)
         commit('setMylist', myList)
     }
+            console.log("mylist",myList)
+
     commit('setLoadDone', 'p')
 }
 
