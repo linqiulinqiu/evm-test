@@ -196,9 +196,11 @@ export default {
         if (this.stk_info.withdraw_wait == 0) {
           receipt = await this.bsc.ctrs.staking.withdraw(pid, amount);
         } else {
+          console.log("wait ", this.stk_info, this.stk_info.withdraw_wait_str);
+          const waitTime = this.stk_info.withdraw_wait_str;
           const resp = await this.$confirm(
             this.$t("locked2"),
-            this.$t("locked1", { time: this.stk_info.withdraw_wait_str }),
+            this.$t("locked1", { time: waitTime }),
             {
               confirmButtonText: this.$t("sure"),
               cancelButtonText: this.$t("cancel"),

@@ -29,6 +29,7 @@ import StakeOperation from "./StakeOperation.vue";
 import swap from "../../swap";
 import tokens from "../../tokens";
 import { ethers } from "ethers";
+import times from "../../times";
 export default {
   props: ["bsc"],
   components: {
@@ -88,12 +89,13 @@ export default {
       const stakeds = await this.bsc.ctrs.staking.staked(pid, this.bsc.addr);
       const staked = stakeds[0];
       info.withdraw_wait = Number(stakeds[1]);
+      info.withdraw_wait_str = times.formatD(info.withdraw_wait, false);
       info.farm_amount = await tokens.format(stakeAddr, staked);
       const earnval = await this.bsc.ctrs.staking.earned(pid, this.bsc.addr);
       info.earned_amount = await tokens.format(rewardAddr, earnval);
       const ap = (stakeInfo.reward_speed * 365 * 86400 * 100) / info.lpamount;
       info.apy = ap.toFixed(4);
-      console.log("loadstakeInfo end", info);
+      // console.log("loadstakeInfo end", info);
       return info;
     },
   },
