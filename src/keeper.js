@@ -77,7 +77,6 @@ async function loadPbxs(pbtid) {
         }
         for (let k in addrInfo) {
             const pre_length = winfo.prefix.length
-            console.log("pbxs info",pre_length,winfo.prefix)
             if (addrInfo[k].substr(pre_length, 6) == '1qqqqq') {
                 addrInfo[k] = false
             }
@@ -206,8 +205,6 @@ async function initMyList(bsc, commit) {
         myList = copyObj(myList)
         commit('setMylist', myList)
     }
-            console.log("mylist",myList)
-
     commit('setLoadDone', 'p')
 }
 

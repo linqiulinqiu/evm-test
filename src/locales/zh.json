@@ -13,6 +13,7 @@
     "bridge":"桥梁",
     "buy":"购买",
     "burn":"烧掉",
+    "bind":"绑定",
     "bind-waddr":"绑定取款地址",
     "bind-waddr-tips":"您已绑定 {wbind} 份取款地址.，取款操作可能发送到任一个地址，请注意查收。或解除{ubind} 份取款地址",
     "bridge-guide":"桥的指引",
@@ -206,6 +207,8 @@
     "stage":"阶段",
     "stake-start":"质押奖励开始时间",
     "sure":"确定",
+    "stake-pool":"质押池",
+    "stake-for":"质押代币，获取收益。",
 
     "to-market":"去往市场",    
     "tips-amount1":"数额过小，将什么都收不到呢！",

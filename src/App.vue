@@ -7,7 +7,7 @@
         </el-header>
         <el-main
           class="scrollbar"
-          style="padding: 0px; min-height: calc(100vh - 190px)"
+          style="padding: 0px"
         >
           <router-view :key="$route.fullPath"></router-view>
         </el-main>
@@ -60,8 +60,9 @@ export default {
 }
 
 #app {
-  min-height: 800px;
+  /* min-height: 820px; */
   color: #ffffff;
+  /* min-width: 768px; */
 }
 .el-header {
   background-color: #25272e;
@@ -85,6 +86,7 @@ export default {
   /* height: calc(100vh); */
   min-height: 820px;
   overflow: auto;
+  /* minheight: calc(100vh - 190px); */
 }
 
 body > .el-container {
