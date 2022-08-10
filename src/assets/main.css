@@ -9,6 +9,14 @@ ul li {
     font-weight: 500;
 }
 
+.color-p {
+    color: #68bb68
+}
+
+.color-m {
+    color: #38F2AF;
+}
+
 .minifont {
     font-size: 14px;
 }
