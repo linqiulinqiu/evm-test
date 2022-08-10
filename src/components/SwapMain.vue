@@ -71,12 +71,12 @@
         <h5>
           <el-col class="price-style" :xs="8"> {{ $t("price") }} : </el-col>
           <el-col :span="20" :xs="24">
-            <span class="font color-p">{{ price.price.forward }}</span>
+            <span class="font">{{ price.price.forward }}</span>
             <span class="tokenpair">
               {{ price.symbol[0] }} per {{ price.symbol[1] }}
             </span>
             <br />
-            <span class="font color-p">{{ price.price.reverse }}</span>
+            <span class="font">{{ price.price.reverse }}</span>
             <span class="tokenpair">
               {{ price.symbol[1] }} per {{ price.symbol[0] }}
             </span>
