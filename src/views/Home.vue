@@ -43,8 +43,8 @@ export default {
   padding: 0;
 }
 .message {
-  height: calc(100vh - 300px);
-  min-height: 612px;
+  /* height: calc(100vh - 300px); */
+  height: 510px;
   overflow: auto;
   margin: 20px 0px;
   padding: 10px;

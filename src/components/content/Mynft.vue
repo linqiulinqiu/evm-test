@@ -31,6 +31,7 @@
           <el-col class="btn-bar">
             <el-pagination
               background
+              small
               :total="Object.keys(this.myList).length"
               layout="prev,pager,next"
               @current-change="handleCurrentChange"

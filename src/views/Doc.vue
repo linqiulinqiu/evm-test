@@ -52,7 +52,7 @@ export default {
         {
           index: "1",
           link: "/Doc/Introduction",
-          value: this.$t("intoduction"),
+          value: this.$t("intruction"),
         },
         {
           index: "2",

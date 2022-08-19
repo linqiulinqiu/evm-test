@@ -65,7 +65,7 @@
             {{ $t("slip-min") }}：
             <span class="color-m font">{{ slipNum.min }}</span>
             <span class="tokenpair">{{ price.symbol[1] }}</span>
-            <span></span>
+            <span></span> 
           </span>
         </h5>
         <h5>

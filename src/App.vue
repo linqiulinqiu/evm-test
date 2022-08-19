@@ -5,10 +5,7 @@
         <el-header style="height: 90px">
           <Plotheader />
         </el-header>
-        <el-main
-          class="scrollbar"
-          style="padding: 0px"
-        >
+        <el-main class="scrollbar" style="padding: 0px">
           <router-view :key="$route.fullPath"></router-view>
         </el-main>
         <el-footer style="height: 100px">
@@ -83,8 +80,8 @@ export default {
 
 .el-main {
   background-color: #2b2c33;
-  /* height: calc(100vh); */
-  min-height: 820px;
+  height: calc(100vh - 180px);
+  min-height: 670px;
   overflow: auto;
   /* minheight: calc(100vh - 190px); */
 }
