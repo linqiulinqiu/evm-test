@@ -202,7 +202,7 @@ export default {
             this.$t("locked2"),
             this.$t("locked1", { time: waitTime }),
             {
-              confirmButtonText: this.$t("sure"),
+              confirmButtonText: this.$t("force-claim"),
               cancelButtonText: this.$t("cancel"),
               type: "warning",
             }
