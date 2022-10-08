@@ -80,6 +80,8 @@ export default {
   background-size: cover;
   background-attachment: fixed;
   position: relative;
+  padding: 30px;
+  box-sizing: border-box;
 }
 
 .card {

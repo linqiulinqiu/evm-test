@@ -2,7 +2,7 @@
   <el-aside :width="asideStyle.width" id="mynft">
     <FoldButton
       v-model="asideStyle"
-      :openWidth="'300px'"
+      :openWidth="'290px'"
       @fold="fold($event)"
       style="top: 0px"
     />
@@ -106,7 +106,7 @@ export default {
   }),
   data() {
     return {
-      asideStyle: { width: "300px", isFold: false },
+      asideStyle: { width: "290px", isFold: false },
       pageNum: 1,
       open_loading: false,
       market: "/Market",

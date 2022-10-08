@@ -57,9 +57,7 @@ export default {
 }
 
 #app {
-  /* min-height: 820px; */
   color: #ffffff;
-  /* min-width: 768px; */
 }
 .el-header {
   background-color: #25272e;
@@ -80,10 +78,9 @@ export default {
 
 .el-main {
   background-color: #2b2c33;
-  height: calc(100vh - 180px);
+  /* height: calc(100vh - 180px); */
   min-height: 670px;
   overflow: auto;
-  /* minheight: calc(100vh - 190px); */
 }
 
 body > .el-container {

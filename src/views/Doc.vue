@@ -8,7 +8,7 @@
           @fold="fold($event)"
           style="z-index: 99"
         />
-        <el-col>
+        <el-col v-if="!asideStyle.isFold">
           <el-menu
             :router="true"
             :default-active="this.menuIndex"
@@ -116,6 +116,6 @@ export default {
 }
 .el-menu .el-menu-item {
   padding-left: 40px !important;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 </style>
