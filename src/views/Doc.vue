@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <el-container>
-      <el-aside :width="asideStyle.width">
+      <el-aside :width="asideStyle.width" id="menu-aside">
         <FoldButton
           v-model="asideStyle"
           :openWidth="'250px'"
@@ -11,6 +11,7 @@
         />
         <el-col v-if="!asideStyle.isFold">
           <el-menu
+            id="doc-menu"
             :router="true"
             :default-active="this.menuIndex"
             text-color="#fff"
@@ -118,8 +119,10 @@ export default {
 .el-main {
   width: 100vw;
 }
+#doc-menu {
+  padding-top: 50px;
+}
 .el-menu .el-menu-item {
-  padding-left: 40px !important;
-  /* overflow: hidden; */
+  padding-left: 60px !important;
 }
 </style>
