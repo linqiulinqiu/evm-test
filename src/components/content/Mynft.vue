@@ -5,6 +5,7 @@
       :openWidth="'290px'"
       @fold="fold($event)"
       style="top: 0px"
+      class="f-btn"
     />
     <el-col v-if="!this.asideStyle.isFold">
       <el-col class="my-title">
@@ -156,6 +157,9 @@ export default {
   font-size: 18px;
   font-weight: 600;
   position: relative;
+}
+#mynft .f-btn {
+  left: 0px;
 }
 .load {
   padding: 50px;
