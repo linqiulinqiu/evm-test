@@ -7,6 +7,7 @@
           :openWidth="'250px'"
           @fold="fold($event)"
           style="z-index: 99"
+          class="f-btn"
         />
         <el-col v-if="!asideStyle.isFold">
           <el-menu
@@ -110,6 +111,9 @@ export default {
   color: #ffffff;
   font-size: 14px;
   position: relative;
+}
+.f-btn {
+  left: 0px;
 }
 .el-main {
   width: 100vw;
