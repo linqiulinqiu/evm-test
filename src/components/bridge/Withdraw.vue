@@ -210,7 +210,7 @@ export default {
     current: async function (newt) {
       this.wAmount = "";
       this.getwAmount = "";
-      // this.wAddr = "";
+      this.wAddr = "";
     },
     deep: true,
     withdrawAddr: function (newV) {
