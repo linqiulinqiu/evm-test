@@ -99,8 +99,8 @@
           ></el-input>
           <el-button
             type="primary"
-            @click="bindWaddr"
-            :loading="coinBtn_state.bloading"
+            @click="bindWaddr('bloading1')"
+            :loading="coinBtn_state.bloading1"
             >{{ $t("bind") }}</el-button
           >
         </el-col>
@@ -135,8 +135,8 @@
           ></el-input>
           <el-button
             type="primary"
-            @click="bindWaddr"
-            :loading="coinBtn_state.bloading"
+            @click="bindWaddr('bloading2')"
+            :loading="coinBtn_state.bloading2"
           >
             {{ $t("bind-waddr") }}
           </el-button>
@@ -206,21 +206,11 @@ export default {
       btn_state: this.btn_states(),
     };
   },
-  // mounted() {
-  //   if (this.current.coinType) {
-  //     const state = this.btn_states();
-  //     this.btn_state = this.btn_states()
-  //   }
-  // },
   watch: {
-    btn_state: function (newv) {
-      console.log("btn_state in watch", newv);
-      return newv;
-    },
-    deep: true,
-    current: async function () {
+    current: async function (newt) {
       this.wAmount = "";
       this.getwAmount = "";
+      // this.wAddr = "";
     },
     deep: true,
     withdrawAddr: function (newV) {
@@ -265,7 +255,8 @@ export default {
           wdisabled: true,
           wloading: false,
           cloading: false,
-          bloading: false,
+          bloading1: false,
+          bloading2: false,
         };
       }
       return btn_state;
@@ -311,14 +302,15 @@ export default {
         const res = await market.clearAddr(id, cointy);
         await market.waitEventDone(res, async function (evt) {
           obj.coinBtn_state.cloading = false;
+          obj.bind_dialog = false;
         });
       } catch (e) {
         this.coinBtn_state.cloading = false;
         console.log("clear Withdraw Addr err", e.message);
       }
     },
-    bindWaddr: async function () {
-      this.coinBtn_state.bloading = true;
+    bindWaddr: async function (key) {
+      this.coinBtn_state[key] = true;
       const cointy = this.current.coinType;
       const id = this.current.pbtId;
       const addr = this.wAddr.toString();
@@ -328,16 +320,18 @@ export default {
         //   rebind = true;
         // }
         const res = await market.bindAddr(addr, id, cointy);
+        console.log("res in bindAddr", res, res == false);
         if (res == false) {
-          this.coinBtn_state.bloading = false;
+          this.coinBtn_state[key] = false;
           this.$message(this.$t("correct-waddr"));
+        } else {
+          const obj = this;
+          await market.waitEventDone(res, async function (evt) {
+            obj.coinBtn_state[key] = false;
+          });
         }
-        const obj = this;
-        await market.waitEventDone(res, async function (evt) {
-          obj.coinBtn_state.bloading = false;
-        });
       } catch (e) {
-        this.coinBtn_state.bloading = false;
+        this.coinBtn_state[key] = false;
         console.log("bind withdraw addr err", e.message);
       }
     },
