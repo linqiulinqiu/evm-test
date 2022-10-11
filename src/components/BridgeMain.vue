@@ -45,7 +45,11 @@
                 ><Deposit :curNFT="this.curNFT" :coinInfo="coinInfo"
               /></el-tab-pane>
               <el-tab-pane :label="$t('withdraw')">
-                <Withdraw :curNFT="this.curNFT" :coinInfo="coinInfo" />
+                <Withdraw
+                  :curNFT="this.curNFT"
+                  :coinInfo="coinInfo"
+                  :coinMap="coinMap"
+                />
               </el-tab-pane>
               <el-tab-pane :label="$t('redeem')">
                 <Redeem :bsc="this.bsc" :coinInfo="coinInfo" />
@@ -88,6 +92,9 @@ export default {
       const info = pbwallet.wcoin_info(state.current.coinType);
       if (info) return info;
       return "-";
+    },
+    coinMap: function () {
+      return market.loadCoinlist();
     },
   }),
   data() {

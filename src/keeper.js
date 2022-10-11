@@ -183,7 +183,7 @@ async function updateMarketListItem(id, commit) {
         const info = await nftBriefInfo(id)
         info.market = await loadMarketInfo(id)
         setMarketItem(key, info, commit)
-        console.log("market list")
+        // console.log("market list")
     }
 }
 

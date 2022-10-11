@@ -310,7 +310,7 @@ async function watchToken(ctrname) {
     const dec = await tokens.decimals(ctr.address)
     const symbol = await tokens.symbol(ctr.address)
     const url = window.location.origin + '/image/' + ctrname + '.png'
-    console.log("url", url)
+    // console.log("url", url)
     const options = {
         address: ctr.address,
         symbol: symbol,
