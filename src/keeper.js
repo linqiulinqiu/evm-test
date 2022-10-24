@@ -1,12 +1,15 @@
 const pbw = require('pbwallet')
 const ethers = require('ethers')
 const tokens = require('./tokens')
+ import market from "./market" 
 var bsc = {}
 var myList = {}
 var mySaleList = {}
 var marketList = {}
+
 const ptInfos = {}
 
+// console.log("coinList",coinlist)
 async function getCoinTypes(pbtid) {
     const cointype = await bsc.ctrs.pbpuzzlehash.pbtCoinTypes(pbtid)
     return cointype
@@ -73,17 +76,12 @@ async function nftBriefInfo(id) {
 }
 
 async function loadPbxs(pbtid) {
-    const cointy = await getCoinTypes(pbtid)
-    // console.log("loadPbxs",cointy)
     const pbxs = {}
-    const cointyArr = cointy[0].concat(cointy[1])
-    const atArr = Array.from(new Set(cointyArr))
-    console.log("atarr",atArr)
+    const ctrsList = market.loadCoinlist()
+    const atArr = Object.keys(ctrsList)
     for (let i = 0; i < atArr.length; i++) {
         const ct = parseInt(atArr[i])
-        // console.log("ct,",i,ct)
-        const winfo = pbw.wcoin_info(ct)
-        console.log("winfo",winfo,"ct ",ct)
+        const winfo = ctrsList[atArr[i]]
         const xAddress = await bsc.ctrs.pbpuzzlehash.pbtPuzzleHash(pbtid, ct)
         const depAddr = window.ChiaUtils.puzzle_hash_to_address(String(xAddress[0]), winfo.prefix)
         const withAddr = window.ChiaUtils.puzzle_hash_to_address(String(xAddress[1]), winfo.prefix)
@@ -92,7 +90,6 @@ async function loadPbxs(pbtid) {
             withdrawAddr: String(withAddr)
         }
         for (let k in addrInfo) {
-            // console.log("winfo in keeper",winfo)
             const pre_length = winfo.prefix.length
             if (addrInfo[k].substr(pre_length, 6) == '1qqqqq') {
                 addrInfo[k] = false
@@ -298,4 +295,6 @@ function startKeeper(_bsc, commit) {
     }
 }
 
-exports.startKeeper = startKeeper
+export default {
+    startKeeper:startKeeper
+}
