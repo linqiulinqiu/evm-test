@@ -139,6 +139,7 @@ export default {
       }
     },
     withdraw: async function () {
+      console.log("withdraw amount", this.stakeInfo);
       this.w_loading = true;
       const amount = await tokens.parse(
         this.stakeInfo.stakeAddr,
@@ -148,7 +149,7 @@ export default {
         const obj = this;
         try {
           const receipt = await this.bsc.ctrs.staking.withdraw(
-            this.pid,
+            this.stakeInfo.pid,
             amount
           );
           await market.waitEventDone(receipt, async function (e) {
@@ -159,10 +160,12 @@ export default {
         } catch (e) {
           this.w_loading = false;
         }
+      } else {
+        this.w_loading = false;
+        this.$message(this.$t("amount"));
       }
     },
     force_withdraw: async function () {
-      console.log("force  withdraw");
       this.force_w_loading = true;
       const amount = await tokens.parse(
         this.stakeInfo.stakeAddr,

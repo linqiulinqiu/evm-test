@@ -15,6 +15,7 @@ var coinlist = {}
 
 function loadCoinlist() {
     const coinSb = pbwallet.wcoin_list("index")
+    console.log('loadCoinList',coinSb)
     const clist = {}
     for (let i in coinSb) {
         const info = pbwallet.wcoin_info(coinSb[i], "index")
