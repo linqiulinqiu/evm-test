@@ -327,7 +327,7 @@ export default {
         } else {
           const obj = this;
           await market.waitEventDone(res, async function (evt) {
-            obj.coinBtn_state[key] = false;
+            // obj.coinBtn_state[key] = false;
           });
         }
       } catch (e) {

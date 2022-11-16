@@ -209,7 +209,7 @@
     "to-market":"Go to the market",    
     "tips-amount1":"The amount is too small, you won't receive anything.",
     "tips-amount2":"The amount is too much, and you don't have enough balance",
-    "tips-waddr":"When an account is bound to multiple addresses of multiple wallets, the money may be randomly sent to one of them. Please pay attention to check.",
+    "tips-waddr":"When an account is bound to multiple addresses of multiple wallets, the coin may be randomly sent to one of them. Please pay attention to check.",
     "total-staked":"Total staked",
     "token-info":"{0} Token Info",
     "transfer":"Transfer",
