@@ -52,7 +52,16 @@
                 />
               </el-tab-pane>
               <el-tab-pane :label="$t('redeem')">
-                <Redeem :bsc="this.bsc" :coinInfo="coinInfo" />
+                <el-col v-if="done">
+                  <h3>
+                    {{ $t("redeem-done") }}
+                    <router-link
+                      to="/Doc/Contact"
+                      class="el-icon-right"
+                    ></router-link>
+                  </h3>
+                </el-col>
+                <Redeem v-else :bsc="this.bsc" :coinInfo="coinInfo" />
               </el-tab-pane>
             </el-tabs>
           </el-col>
@@ -98,7 +107,9 @@ export default {
     },
   }),
   data() {
-    return {};
+    return {
+      done: true,
+    };
   },
   methods: {
     addToken: async function () {

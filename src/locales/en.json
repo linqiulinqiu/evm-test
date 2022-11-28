@@ -139,6 +139,7 @@
 
     "look-info":"Please connect wallet",
     "loading":"Loading ...",
+    "locked":"Locking,please wait {time} or force withdraw",
     "lock-time":"Locking time",
     "locked1":"Locked, please wait {time} for unlock ,",
     "locked2":"Or force unlock by give up all earned reward in this pool and recalculate the lock time",
@@ -180,6 +181,7 @@
     "road-map":"RoadMap",
     "retreat":"Retreat from market",
     "remainder":"Remainder",
+    "redeem-done":"The tokens upgrade is over. Please contact us if you need anything.",
     "redeem-notice":"No upgradable tokens",
     "redeem-notice1":"Upgrade function will online soon",
 
