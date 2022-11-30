@@ -8,10 +8,30 @@ import tokens from './tokens'
 // 全局变量设置
 var bsc = {}
 const ptAddrs = {
-    'BNB': ethers.constants.AddressZero,
-    // "USDT": bsc.ctrs.usdt.address
+    'BNB': ethers.constants.AddressZero
 }
 var coinlist = {}
+// var allBcoinList={}
+// function loadBcoinList(bsc) {
+//     // var bcoinList = {}
+//     if (bsc.addr) {
+//         const ctrs = bsc.ctrs
+//         allBcoinList = {
+//             'usdc': ctrs.usdc.addrress,
+//             'usdt': ctrs.usdt.address,
+//             'bnb': ethers.constants.AddressZero,
+//             'pbp':ctrs.pbp.address
+//         }
+//         var list = {}
+//         for (let i in allBcoinList) {
+//             console.log("listssssss",i)
+//             if (i in ctrs) {
+//                 list[i] = allBcoinList[i]
+//             }
+//         }
+//         console.log("list =====", list)
+//     }
+// }
 
 function loadCoinlist() {
     const coinSb = pbwallet.wcoin_list("index")
@@ -25,6 +45,7 @@ function loadCoinlist() {
     coinlist = clist
     return coinlist
 }
+
 
 async function ListenToWCoin(commit) {
     const coinlist = loadCoinlist()

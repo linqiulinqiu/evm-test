@@ -404,6 +404,9 @@ export default {
         this.swapping = false;
       }
     },
+    // loadWrapCoin: async function () {
+    //   const wrapList = pb
+    // },
     load_wlist: async function () {
       this.allwlist.push({
         bsymbol: "BNB",
@@ -427,6 +430,13 @@ export default {
         address: this.bsc.ctrs.busd.address,
         decimals: await this.bsc.ctrs.usdt.decimals(),
       });
+      if ("usdc" in this.bsc.ctrs) {
+        this.allwlist.push({
+          bsymbol: "USDC",
+          address: this.bsc.ctrs.usdc.address,
+          decimals: await this.bsc.ctrs.usdc.decimals(),
+        });
+      }
       const list = market.loadCoinlist();
       for (let i in list) {
         this.allwlist.push(list[i]);
