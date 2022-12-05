@@ -258,21 +258,29 @@ function startKeeper(_bsc, commit) {
         bsc.ctrs.pbt.on(bsc.ctrs.pbt.filters.Transfer, async function (evt) {
             if (evt.event == "Transfer") {
                 if (evt.args.to == bsc.addr) {
+                                        console.log("keeper",evt.event,"info",evt)
+
                     await addToMyList(evt.args.tokenId, commit)
                     console.log("keeper",evt.event,"info",evt)
 
                 }
                 if (evt.args.to == bsc.ctrs.pbmarket.address) {
+                                        console.log("keeper",evt.event,"info",evt)
+
                     await addToMarketList(evt.args.tokenId, commit)
                     console.log("keeper",evt.event,"info",evt)
 
                 }
                 if (evt.args.from == bsc.addr) {
+                                        console.log("keeper",evt.event,"info",evt)
+
                     deleteFromMyList(evt.args.tokenId, commit)
                     console.log("keeper",evt.event,"info",evt)
 
                 }
                 if (evt.args.from == bsc.ctrs.pbmarket.address) {
+                                        console.log("keeper",evt.event,"info",evt)
+
                     deleteFromMarketList(evt.args.tokenId, commit)
                     console.log("keeper",evt.event,"info",evt)
 
@@ -283,6 +291,8 @@ function startKeeper(_bsc, commit) {
     if (bsc.ctrs.pbpuzzlehash.filters.WithdrawPuzzleHashChanged) {
         bsc.ctrs.pbpuzzlehash.on(bsc.ctrs.pbpuzzlehash.filters.WithdrawPuzzleHashChanged, async function (evt) {
             if (evt.event == 'WithdrawPuzzleHashChanged') {
+                                    console.log("keeper",evt.event,"info",evt)
+
                 await updateMyListItem(evt.args.pbtId, commit)
                 console.log("keeper",evt.event,"info",evt)
 
@@ -292,6 +302,8 @@ function startKeeper(_bsc, commit) {
     if (bsc.ctrs.pbpuzzlehash.filters.DepositPuzzleHashChanged) {
         bsc.ctrs.pbpuzzlehash.on(bsc.ctrs.pbpuzzlehash.filters.DepositPuzzleHashChanged, async function (evt) {
             if (evt.event == 'DepositPuzzleHashChanged') {
+                                    console.log("keeper",evt.event,"info",evt)
+
                 await updateMyListItem(evt.args.pbtId, commit)
                 console.log("keeper",evt.event,"info",evt)
 
@@ -301,6 +313,8 @@ function startKeeper(_bsc, commit) {
     if (bsc.ctrs.pbmarket.filters.OnSale) {
         bsc.ctrs.pbmarket.on(bsc.ctrs.pbmarket.filters.OnSale, async function (evt) {
             if (evt.event == "OnSale") {
+                                    console.log("keeper",evt.event,"info",evt)
+
                 await updateMarketListItem(evt.args.tokenId, commit)
                 console.log("keeper",evt.event,"info",evt)
 
