@@ -65,6 +65,7 @@ async function ListenToWCoin(commit) {
     await updateBalnce()
     for (let i in ctr) {
         ctr[i].on(ctr[i].filters.Transfer, updateBalnce)
+        console.log("update wbalance",wBalance)
     }
 }
 

@@ -29,13 +29,13 @@ function copyObj(src, dest) {
 function fix_uri(uri, gid) {
     const gateways = [
         'https://cf-ipfs.com/ipfs/',
-        'https://dweb.link/ipfs/',
-        'https://nftstorage.link/ipfs/',
-        'https://infura-ipfs.io/ipfs/'
+        // 'https://dweb.link/ipfs/',
+        // 'https://nftstorage.link/ipfs/',
+        // 'https://infura-ipfs.io/ipfs/'
     ]
     if (uri.startsWith('ipfs:')) {
         while (gid >= gateways.length) gid -= gateways.length
-        // console.log("fix_uri",gid,gateways[gid], uri)
+        console.log("fix_uri",gid,gateways[gid], uri)
         return uri.replace('ipfs://', gateways[gid])
     } else {
         return uri
@@ -259,15 +259,23 @@ function startKeeper(_bsc, commit) {
             if (evt.event == "Transfer") {
                 if (evt.args.to == bsc.addr) {
                     await addToMyList(evt.args.tokenId, commit)
+                    console.log("keeper",evt.event,"info",evt)
+
                 }
                 if (evt.args.to == bsc.ctrs.pbmarket.address) {
                     await addToMarketList(evt.args.tokenId, commit)
+                    console.log("keeper",evt.event,"info",evt)
+
                 }
                 if (evt.args.from == bsc.addr) {
                     deleteFromMyList(evt.args.tokenId, commit)
+                    console.log("keeper",evt.event,"info",evt)
+
                 }
                 if (evt.args.from == bsc.ctrs.pbmarket.address) {
                     deleteFromMarketList(evt.args.tokenId, commit)
+                    console.log("keeper",evt.event,"info",evt)
+
                 }
             }
         })
@@ -276,6 +284,8 @@ function startKeeper(_bsc, commit) {
         bsc.ctrs.pbpuzzlehash.on(bsc.ctrs.pbpuzzlehash.filters.WithdrawPuzzleHashChanged, async function (evt) {
             if (evt.event == 'WithdrawPuzzleHashChanged') {
                 await updateMyListItem(evt.args.pbtId, commit)
+                console.log("keeper",evt.event,"info",evt)
+
             }
         })
     }
@@ -283,6 +293,8 @@ function startKeeper(_bsc, commit) {
         bsc.ctrs.pbpuzzlehash.on(bsc.ctrs.pbpuzzlehash.filters.DepositPuzzleHashChanged, async function (evt) {
             if (evt.event == 'DepositPuzzleHashChanged') {
                 await updateMyListItem(evt.args.pbtId, commit)
+                console.log("keeper",evt.event,"info",evt)
+
             }
         })
     }
@@ -290,6 +302,8 @@ function startKeeper(_bsc, commit) {
         bsc.ctrs.pbmarket.on(bsc.ctrs.pbmarket.filters.OnSale, async function (evt) {
             if (evt.event == "OnSale") {
                 await updateMarketListItem(evt.args.tokenId, commit)
+                console.log("keeper",evt.event,"info",evt)
+
             }
         })
     }
