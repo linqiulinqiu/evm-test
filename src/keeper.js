@@ -29,13 +29,13 @@ function copyObj(src, dest) {
 function fix_uri(uri, gid) {
     const gateways = [
         'https://cf-ipfs.com/ipfs/',
-        // 'https://dweb.link/ipfs/',
-        // 'https://nftstorage.link/ipfs/',
-        // 'https://infura-ipfs.io/ipfs/'
+        'https://dweb.link/ipfs/',
+        'https://nftstorage.link/ipfs/',
+        'https://infura-ipfs.io/ipfs/'
     ]
     if (uri.startsWith('ipfs:')) {
         while (gid >= gateways.length) gid -= gateways.length
-        console.log("fix_uri",gid,gateways[gid], uri)
+        // console.log("fix_uri",gid,gateways[gid], uri)
         return uri.replace('ipfs://', gateways[gid])
     } else {
         return uri
