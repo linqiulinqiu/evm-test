@@ -49,7 +49,13 @@ function n2str(n) {
     return parseInt(n).toString()
 }
 
+function sleep(ms) {
+    return new Promise(r => setTimeout(r, ms));
+}
+
 async function nftBriefInfo(id) {
+    console.log("NFTid = ", id)
+    await sleep(1000)
     const uri = await bsc.ctrs.pbt.tokenURI(parseInt(id))
     let meta = {}
     let gid = 0
@@ -57,6 +63,7 @@ async function nftBriefInfo(id) {
         const metaData = await fetch(fix_uri(uri, gid))
         const img = await metaData.json()
         meta = metaData
+        await sleep(1000)
         meta.image = await fix_uri(String(img.image),gid)
         meta.loading = false
     } catch (e) {
@@ -76,12 +83,14 @@ async function nftBriefInfo(id) {
 }
 
 async function loadPbxs(pbtid) {
+    await sleep(1000)
     const pbxs = {}
     const ctrsList = market.loadCoinlist()
     const atArr = Object.keys(ctrsList)
     for (let i = 0; i < atArr.length; i++) {
         const ct = parseInt(atArr[i])
         const winfo = ctrsList[atArr[i]]
+        await sleep(500)
         const xAddress = await bsc.ctrs.pbpuzzlehash.pbtPuzzleHash(pbtid, ct)
         const depAddr = window.ChiaUtils.puzzle_hash_to_address(String(xAddress[0]), winfo.prefix)
         const withAddr = window.ChiaUtils.puzzle_hash_to_address(String(xAddress[1]), winfo.prefix)
