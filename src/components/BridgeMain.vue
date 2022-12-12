@@ -21,9 +21,10 @@
         <el-col v-else>
           <el-col id="balance" :lg="12">
             {{ this.$t("balance") }}：
-            <span class="font">
+            <span class="font" v-if="coinInfo.index in WBalance">
               {{ WBalance[coinInfo.index] }}
             </span>
+            <span v-else class="el-icon-loading"></span>
             <span class="minifont"> {{ coinInfo.bsymbol }}</span>
             <el-tooltip
               placement="bottom"

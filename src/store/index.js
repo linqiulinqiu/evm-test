@@ -13,7 +13,7 @@ export default new Vuex.Store({
         myList: {},
         marketList: {},
         mySaleList: {},
-        WBalance: 0,
+        WBalance: {},
         loadDone: '',
         
     },
@@ -36,11 +36,16 @@ export default new Vuex.Store({
                 state.current = Object.assign({}, state.current);
             }
         },
-        setCurrentCoinType(state, coinType) {
+        async setCurrentCoinType(state, coinType) {
             if (coinType != state.current.coinType) {
+                // delete state.WBalance[coinType];
                 state.current.coinType = coinType
                 state.current = Object.assign({}, state.current);
-                state.bcoin = pbw.wcoin_info(coinType).symbol;
+                const info = pbw.wcoin_info(coinType);
+                state.bcoin = info.symbol;
+                console.log('select coin', info);
+                const balance = await tokens.balance(info.address);
+                state.WBalance[coinType] = await tokens.format(info.address, balance);
             }
         },
         setMylist(state, list) {

@@ -259,16 +259,15 @@ async function initMarketList(bsc, commit) {
 }
 
 
-function startKeeper(_bsc, commit) {
+async function startKeeper(_bsc, commit) {
     copyObj(_bsc, bsc)
-    initMyList(bsc, commit)
-    initMarketList(bsc, commit)
+    await initMyList(bsc, commit)
+    await initMarketList(bsc, commit)
     if (bsc.ctrs.pbt.filters.Transfer) {
         bsc.ctrs.pbt.on(bsc.ctrs.pbt.filters.Transfer, async function (evt) {
             if (evt.event == "Transfer") {
                 if (evt.args.to == bsc.addr) {
                                         console.log("keeper",evt.event,"info",evt)
-
                     await addToMyList(evt.args.tokenId, commit)
                     console.log("keeper",evt.event,"info",evt)
 

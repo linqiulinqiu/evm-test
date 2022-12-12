@@ -404,9 +404,6 @@ export default {
         this.swapping = false;
       }
     },
-    // loadWrapCoin: async function () {
-    //   const wrapList = pb
-    // },
     load_wlist: async function () {
       this.allwlist.push({
         bsymbol: "BNB",

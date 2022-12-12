@@ -47,27 +47,27 @@ function loadCoinlist() {
 }
 
 
-async function ListenToWCoin(commit) {
-    const coinlist = loadCoinlist()
-    const wBalance = {}
-    var ctr = {}
-    async function updateBalnce() {
-        for (let i in coinlist) {
-            const ctrname = coinlist[i].ctrname
-            if (ctrname in bsc.ctrs) {
-                ctr[ctrname] = bsc.ctrs[ctrname]
-                const balance = await ctr[ctrname].balanceOf(bsc.addr)
-                wBalance[i] = await tokens.format(ctr[ctrname].address, balance)
-            }
-        }
-        commit('setWBalance', wBalance)
-    }
-    await updateBalnce()
-    // for (let i in ctr) {
-        // ctr[i].on(ctr[i].filters.Transfer, updateBalnce)
-    //     console.log("update wbalance",wBalance)
-    // }
-}
+// async function ListenToWCoin(commit) {
+//     const coinlist = loadCoinlist()
+//     const wBalance = {}
+//     var ctr = {}
+//     // async function updateBalnce() {
+//         for (let i in coinlist) {
+//             const ctrname = coinlist[i].ctrname
+//             if (ctrname in bsc.ctrs) {
+//                 ctr[ctrname] = bsc.ctrs[ctrname]
+//                 const balance = await ctr[ctrname].balanceOf(bsc.addr)
+//                 wBalance[i] = await tokens.format(ctr[ctrname].address, balance)
+//             }
+//         }
+//         commit('setWBalance', wBalance)
+//     // }
+//     // await updateBalnce()
+//     // for (let i in ctr) {
+//         // ctr[i].on(ctr[i].filters.Transfer, updateBalnce)
+//     //     console.log("update wbalance",wBalance)
+//     // }
+// }
 
 
 async function connect(commit,provider) {
@@ -78,7 +78,7 @@ async function connect(commit,provider) {
     }
     if (bsc) {
         commit("setBsc", bsc)
-        await ListenToWCoin(commit)
+        // await ListenToWCoin(commit)
         return bsc
     }
     return false
@@ -389,6 +389,6 @@ export default {
     getfees: getfees,
     getmintfee: getmintfee,
     loadCoinlist: loadCoinlist,
-    ListenToWCoin: ListenToWCoin,
+    // ListenToWCoin: ListenToWCoin,
     transferPBT:transferPBT
 }
