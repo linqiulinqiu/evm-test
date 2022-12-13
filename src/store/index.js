@@ -26,7 +26,7 @@ export default new Vuex.Store({
             state.baddr = baddr
         },
         setLoadDone(state, done) {
-            if(!state.loadDone.includes(done)){
+            if (!state.loadDone.includes(done)) {
                 state.loadDone = state.loadDone.concat(done)
             }
         },
@@ -36,16 +36,13 @@ export default new Vuex.Store({
                 state.current = Object.assign({}, state.current);
             }
         },
-        async setCurrentCoinType(state, coinType) {
+        setCurrentCoinType(state, coinType) {
             if (coinType != state.current.coinType) {
-                // delete state.WBalance[coinType];
+                delete state.WBalance[coinType];
                 state.current.coinType = coinType
                 state.current = Object.assign({}, state.current);
                 const info = pbw.wcoin_info(coinType);
                 state.bcoin = info.symbol;
-                console.log('select coin', info);
-                const balance = await tokens.balance(info.address);
-                state.WBalance[coinType] = await tokens.format(info.address, balance);
             }
         },
         setMylist(state, list) {
@@ -58,9 +55,7 @@ export default new Vuex.Store({
             state.mySaleList = list
         },
         setWBalance(state, balance) {
-            state.WBalance = balance
+            state.WBalance = Object.assign({},balance)
         }
     },
-    actions: {},
-    modules: {}
 })

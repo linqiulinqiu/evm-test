@@ -27,6 +27,8 @@
 <script>
 import { mapState } from "vuex";
 import market from "../../market";
+import tokens from "../../tokens";
+import pbw from "pbwallet";
 import FoldButton from "../lib/FoldButton.vue";
 export default {
   components: {
@@ -52,9 +54,19 @@ export default {
     };
   },
   methods: {
-    changeCoin: function (item) {
-      this.$store.commit("setCurrentCoinType", item.index);
+    setBalance: async function (coinType) {
+      const info = pbw.wcoin_info(coinType);
+      const balance_parse = await tokens.balance(info.address);
+      const balance_format = await tokens.format(info.address, balance_parse);
+      return balance_format;
     },
+    changeCoin: async function (item) {
+      this.$store.commit("setCurrentCoinType", item.index);
+      const balance = await this.setBalance(item.index);
+      const wBalance = this.$store.state.WBalance;
+      wBalance[item.index] = balance;
+      this.$store.commit("setWBalance", wBalance);
+     },
     loadcoin: function () {
       this.coinMap = market.loadCoinlist();
     },

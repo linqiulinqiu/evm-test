@@ -21,10 +21,11 @@
         <el-col v-else>
           <el-col id="balance" :lg="12">
             {{ this.$t("balance") }}：
-            <span class="font" v-if="coinInfo.index in WBalance">
-              {{ WBalance[coinInfo.index] }}
+
+            <span v-if="!curBalance" class="el-icon-loading"> </span>
+            <span class="font" v-else>
+              {{ curBalance }}
             </span>
-            <span v-else class="el-icon-loading"></span>
             <span class="minifont"> {{ coinInfo.bsymbol }}</span>
             <el-tooltip
               placement="bottom"
@@ -105,6 +106,14 @@ export default {
     },
     coinMap: function () {
       return market.loadCoinlist();
+    },
+    curBalance: function (state) {
+      const index = this.coinInfo.index;
+      if (index in this.WBalance) {
+        const balance = this.WBalance[index];
+        return balance;
+      }
+      return false;
     },
   }),
   data() {
