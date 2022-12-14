@@ -143,6 +143,7 @@ export default {
   methods: {
     selectTag: function (key) {
       this.$store.commit("setCurrentPbtId", false);
+      this.$store.commit("setCurrentCoinType", false);
     },
   },
 };
