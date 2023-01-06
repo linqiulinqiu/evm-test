@@ -20,9 +20,17 @@
           </p>
           <el-col class="follow">
             <el-col class="withdraw-addr">
-              <span class="font">
-                {{ this.withdrawAddr }}
-              </span>
+              <span class="font"> {{ this.withdrawAddr }} </span>
+              <el-link
+                icon="el-icon-link"
+                :href="
+                  'https://alltheblocks.net/' +
+                  this.coinInfo.name.toLowerCase() +
+                  '/address/' +
+                  this.withdrawAddr
+                "
+                target="_blank"
+              ></el-link>
               <el-button
                 style="float: right"
                 icon="el-icon-edit"
