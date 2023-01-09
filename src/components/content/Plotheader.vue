@@ -56,8 +56,6 @@
 <script>
 import ConnectButton from "../lib/ConnectWalletButton.vue";
 import { mapState } from "vuex";
-import market from "../../market";
-import keeper from "../../keeper";
 import { i18n, setup } from "../../locales";
 
 function versions() {
@@ -102,6 +100,7 @@ export default {
         { tag: this.$t("market"), link: "/Market" },
         { tag: this.$t("swap"), link: "/Swap" },
         { tag: this.$t("stake"), link: "/Stake" },
+        { tag: "PBP", link:"/PBPToken"},
         { tag: this.$t("doc"), link: "/Doc" },
       ];
     },
