@@ -8,24 +8,24 @@
         <p>PBP的发行规则</p>
         <p>PBP的价值保障，包括回购和销毁规则以及锁定规则</p>
       </el-col>
-      <hr></hr>
-      <el-col>
-        <p>PBP的销毁记录</p>
-        <BurnMain v-if="bsc.addr" />
-        <p v-else>
-            Connect wallet for a list of PBP buy-back and burn history.
-        </p>
+      <hr>
+      <el-col v-if="bsc.addr">
+        <p>PBP当前发行状态</p>
+        <PBPInfoMain />
+      </el-col>
+      <el-col v-else>
+          Connect wallet for a list of PBP buy-back and burn history.
       </el-col>
     </el-main>
   </el-container>
 </template>
 <script>
-import BurnMain from "../components/BurnMain.vue";
+import PBPInfoMain from "../components/PBPInfoMain.vue";
 import { mapState } from "vuex";
 export default {
   name: "PBPToken",
   components: {
-    BurnMain,
+    PBPInfoMain,
   },
   computed: mapState({
     bsc: "bsc",
