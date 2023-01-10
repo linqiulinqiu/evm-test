@@ -5,6 +5,7 @@
       <ul>
         <li>合约地址：<a target="_blank" :href="tokenUrl()">{{ pbpAddress }}</a></li>
         <li>当前发行总量：{{totalSupply}}</li>
+        <li>官方销毁总量：{{totalBurnt }}</li>
       </ul>
     </el-col>
     <el-col>
@@ -12,7 +13,11 @@
       <p v-if="burns.length==0">
         Loading
       </p>
-      <el-table strip border v-else>
+      <el-table strip border v-else :data="burns">
+        <el-table-column prop="time" label="Burn Time"></el-table-column>
+        <el-table-column prop="amount" label="PBP Amount"></el-table-column>
+        <el-table-column prop="txid" label="TX"></el-table-column> 
+        <el-table-column prop="url" label="Link"></el-table-column>
       </el-table>
     </el-col>
   </el-col>
@@ -21,6 +26,7 @@
 import { mapState } from "vuex";
 import { ethers } from "ethers";
 import tokens from "../tokens";
+import recBurns from "../rec-burns.json";
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -32,6 +38,20 @@ export default {
   },
   computed: mapState({
     bsc: "bsc",
+    burns: function (){
+      const res = []
+      for(var i in recBurns.burns){
+        const burn = recBurns.burns[i]
+        console.log('burn=',burn)
+        res.push({
+          amount: ethers.utils.formatUnits(burn.args[2],'gwei'),  // TODO: gwei 刚好对应PBP的decimals，不可用于其它Token
+          time: (new Date(burn.timestamp*1000)).toLocaleDateString('zh-CN'),  // TODO: 应从系统locale读取
+          txid: burn.transactionHash,
+          url: `https://bscscan.com/tx/${burn.transactionHash}`
+        })
+      }
+      return res
+    }
   }),
   mounted() {
     this.loadInfo()
@@ -40,7 +60,7 @@ export default {
     return {
       pbpAddress: '-',
       totalSupply: '-',
-      burns: [],
+      totalBurnt: '-'
     };
   },
   methods: {
@@ -51,31 +71,15 @@ export default {
       return '#';
     },
     loadInfo: async function () {
-      console.log('loading PBP-info')
       const ctr = this.bsc.ctrs['pbp']
       this.pbpAddress = ctr.address
-      await sleep(500)
       this.totalSupply = await tokens.format(this.pbpAddress,await tokens.supply(this.pbpAddress))
-      const teamAddr = '0xfeea9cd0da8279ce0f208fdeee2355062621254f'
-      await sleep(500)
-      const burnEnd = await this.bsc.provider.getBlockNumber()
-      var burnBegin = 18134388  // first burn at this block height
-      const filterBurn = ctr.filters.Transfer(teamAddr,ethers.constants.AddressZero)
-      const burns = []
-      const checkStep = 2000
-      while(burnBegin<burnEnd){
-        const stepEnd = Math.min(burnEnd, burnBegin+checkStep-1)
-        console.log('burn-begin,end=', burnBegin, stepEnd, burnEnd)
-        const events = await ctr.queryFilter(filterBurn, burnBegin, stepEnd)
-        //TODO: make sure events are in older-first order
-        console.log('events=', burnBegin, burnEnd, events)
-        for(var i in events){
-          burns.push(events[i].args)
-        }
-        await sleep(500)
-        burnBegin += checkStep
+      var totalBurnt = ethers.BigNumber.from(0)
+      for(var i in recBurns.burns){
+        const burn = recBurns.burns[i]
+        totalBurnt = totalBurnt.add(burn.args[2])
       }
-      console.log('burns=', burns)
+      this.totalBurnt = ethers.utils.formatUnits(totalBurnt,'gwei')
     },
   },
 };
