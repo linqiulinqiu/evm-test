@@ -15,9 +15,17 @@
       </p>
       <el-table strip border v-else :data="burns">
         <el-table-column prop="time" label="Burn Time"></el-table-column>
-        <el-table-column prop="amount" label="PBP Amount"></el-table-column>
-        <el-table-column prop="txid" label="TX"></el-table-column> 
-        <el-table-column prop="url" label="Link"></el-table-column>
+        <el-table-column prop="amount" label="PBP Amount">
+          <template #default="scope">
+            <RichNumber :data="scope.row.amount"></RichNumber>
+          </template>
+        </el-table-column>
+        <el-table-column prop="txid" label="TX">
+          <template #default="scope">
+            <span id="addr">{{  scope.row.txid  }}</span>
+            <a :href="scope.row.url">链接图标</a>
+          </template>
+        </el-table-column> 
       </el-table>
     </el-col>
   </el-col>
@@ -88,5 +96,7 @@ export default {
 };
 </script>
 <style>
-
+span#addr {
+  font-family: monospace;
+}
 </style>
