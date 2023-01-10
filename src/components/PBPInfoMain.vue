@@ -9,7 +9,10 @@
     </el-col>
     <el-col>
       销毁历史
-      <el-table strip border>
+      <p v-if="burns.length==0">
+        Loading
+      </p>
+      <el-table strip border v-else>
       </el-table>
     </el-col>
   </el-col>
@@ -59,11 +62,18 @@ export default {
       var burnBegin = 18134388  // first burn at this block height
       const filterBurn = ctr.filters.Transfer(teamAddr,ethers.constants.AddressZero)
       const burns = []
+      const checkStep = 2000
       while(burnBegin<burnEnd){
-        const events = await ctr.queryFilter(filterBurn, burnBegin, Math.min(burnEnd, burnBegin+500))
-        console.log('events', events)
-        burns.push(...events)
-        await sleep(1000)
+        const stepEnd = Math.min(burnEnd, burnBegin+checkStep-1)
+        console.log('burn-begin,end=', burnBegin, stepEnd, burnEnd)
+        const events = await ctr.queryFilter(filterBurn, burnBegin, stepEnd)
+        //TODO: make sure events are in older-first order
+        console.log('events=', burnBegin, burnEnd, events)
+        for(var i in events){
+          burns.push(events[i].args)
+        }
+        await sleep(500)
+        burnBegin += checkStep
       }
       console.log('burns=', burns)
     },

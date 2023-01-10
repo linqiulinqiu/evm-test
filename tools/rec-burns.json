@@ -1,0 +1,31 @@
+{
+  "checkedBlockNumber": 18458365,
+  "burns": [
+    {
+      "blockNumber": 18134388,
+      "blockHash": "0x143fac4971233763c9f1405a1c4cf5767630e0ab836301608e67c597461784b1",
+      "transactionIndex": 211,
+      "removed": false,
+      "address": "0x217634d01809d7B9C6348D70A95AE7f5E5179de3",
+      "data": "0x000000000000000000000000000000000000000000000000000107605a9cf616",
+      "topics": [
+        "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+        "0x000000000000000000000000feea9cd0da8279ce0f208fdeee2355062621254f",
+        "0x0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "transactionHash": "0x7f4e2dd7d268ad84520b4088da308c56f30443b7ade43f7a9751868d53426b3d",
+      "logIndex": 480,
+      "event": "Transfer",
+      "eventSignature": "Transfer(address,address,uint256)",
+      "args": [
+        "0xFeeA9Cd0Da8279CE0F208fDeee2355062621254f",
+        "0x0000000000000000000000000000000000000000",
+        {
+          "type": "BigNumber",
+          "hex": "0x0107605a9cf616"
+        }
+      ]
+    }
+  ],
+  "chainBlockHeight": 24652029
+}
