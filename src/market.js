@@ -83,7 +83,13 @@ async function connect(commit,provider) {
     }
     return false
 }
-
+ async function loadBalance (coinType,) {
+      const info = pbwallet.wcoin_info(coinType);
+      const balance_parse = await tokens.balance(info.address);
+      const balance_format = await tokens.format(info.address, balance_parse);
+      return balance_format;
+     
+ }
 async function getmintfee() {
     const options = {}
     const fee = await bsc.ctrs.pbt.mintFee();
@@ -390,5 +396,6 @@ export default {
     getmintfee: getmintfee,
     loadCoinlist: loadCoinlist,
     // ListenToWCoin: ListenToWCoin,
-    transferPBT:transferPBT
+    transferPBT: transferPBT,
+    loadBalance:loadBalance,
 }

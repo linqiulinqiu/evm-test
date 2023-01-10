@@ -21,8 +21,17 @@
           <el-col class="follow">
             <el-col class="withdraw-addr">
               <span class="font"> {{ this.withdrawAddr }} </span>
+              <a
+                class="block-link"
+                :href="
+                  'https://alltheblocks.net/' +
+                  this.coinInfo.name.toLowerCase() +
+                  '/address/' +
+                  this.withdrawAddr
+                "
+              ></a>
               <el-link
-                icon="el-icon-link"
+                icon="../../assets/image/External_link.svg"
                 :href="
                   'https://alltheblocks.net/' +
                   this.coinInfo.name.toLowerCase() +
@@ -30,7 +39,14 @@
                   this.withdrawAddr
                 "
                 target="_blank"
-              ></el-link>
+              >
+                <i
+                  src="../../assets/image/external_link.svg"
+                  alt="Alltheblock
+                  browser link"
+                >
+                </i>
+              </el-link>
               <el-button
                 style="float: right"
                 icon="el-icon-edit"
@@ -285,12 +301,18 @@ export default {
     },
     withdraw: async function () {
       this.coinBtn_state.wloading = true;
+      const cointy = this.current.coinType;
       console.log("btn_state.wloading", this.coinBtn_state.wloading);
       if (await this.amount_valid(this.wAmount)) {
         try {
           const obj = this;
           const res = await market.burnWcoin(this.wAmount, this.coinInfo);
           await market.waitEventDone(res, async function (evt) {
+            console.log("evt in withdraw", evt);
+            const balance = await market.loadBalance(cointy);
+            const wBalance = obj.$store.state.WBalance;
+            wBalance[cointy] = balance;
+            obj.$store.commit("setWBalance", wBalance);
             obj.coinBtn_state.wloading = false;
             obj.wAmount = "";
           });
@@ -323,10 +345,6 @@ export default {
       const id = this.current.pbtId;
       const addr = this.wAddr.toString();
       try {
-        // let rebind = false;
-        // if (this.withdrawAddr != false) {
-        //   rebind = true;
-        // }
         const res = await market.bindAddr(addr, id, cointy);
         console.log("res in bindAddr", res, res == false);
         if (res == false) {
@@ -347,6 +365,19 @@ export default {
 };
 </script>
 <style>
+.block-link {
+  color: #38f2af;
+  display: inline-block;
+  margin-left: 15px;
+  margin-top: 5px;
+  width: 25px;
+  height: 25px;
+  background-image: url("../../assets/image/external_link.svg");
+}
+.block-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
 .after-amount {
   color: #38f2af;
   margin: 0px 10px;

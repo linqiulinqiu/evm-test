@@ -54,19 +54,13 @@ export default {
     };
   },
   methods: {
-    setBalance: async function (coinType) {
-      const info = pbw.wcoin_info(coinType);
-      const balance_parse = await tokens.balance(info.address);
-      const balance_format = await tokens.format(info.address, balance_parse);
-      return balance_format;
-    },
     changeCoin: async function (item) {
       this.$store.commit("setCurrentCoinType", item.index);
-      const balance = await this.setBalance(item.index);
+      const balance = await market.loadBalance(item.index);
       const wBalance = this.$store.state.WBalance;
       wBalance[item.index] = balance;
       this.$store.commit("setWBalance", wBalance);
-     },
+    },
     loadcoin: function () {
       this.coinMap = market.loadCoinlist();
     },
