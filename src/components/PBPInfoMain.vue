@@ -4,8 +4,8 @@
       <h4>PBP发行量</h4>
       <ul>
         <li>合约地址：<a target="_blank" :href="tokenUrl()">{{ pbpAddress }}</a></li>
-        <li>当前发行总量：{{totalSupply}}</li>
-        <li>官方销毁总量：{{totalBurnt }}</li>
+        <li>当前发行总量：<RichNumber :data="totalSupply"></RichNumber></li>
+        <li>官方销毁总量：<RichNumber :data="totalBurnt"></RichNumber></li>
       </ul>
     </el-col>
     <el-col>
@@ -25,8 +25,11 @@
 <script>
 import { mapState } from "vuex";
 import { ethers } from "ethers";
+
 import tokens from "../tokens";
 import recBurns from "../rec-burns.json";
+
+import RichNumber from "./lib/RichNumber.vue";
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -35,6 +38,7 @@ function sleep(ms) {
 export default {
   name: "PBPInfoMain",
   components: {
+    RichNumber
   },
   computed: mapState({
     bsc: "bsc",
@@ -42,7 +46,6 @@ export default {
       const res = []
       for(var i in recBurns.burns){
         const burn = recBurns.burns[i]
-        console.log('burn=',burn)
         res.push({
           amount: ethers.utils.formatUnits(burn.args[2],'gwei'),  // TODO: gwei 刚好对应PBP的decimals，不可用于其它Token
           time: (new Date(burn.timestamp*1000)).toLocaleDateString('zh-CN'),  // TODO: 应从系统locale读取
