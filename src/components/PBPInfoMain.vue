@@ -18,9 +18,9 @@
       </el-col>
     </el-col>
     <el-col>
-      <p v-if="burns.length == 0">Loading</p>
+      <p v-if="burns.length == 0" icon="">Loading</p>
       <el-col class="token-info" v-else>
-        <h2 class="center">Burned</h2>
+        <h2 class="center">Buy back and Burned</h2>
         <el-table id="history" :data="burns" style="width: 100%">
           <el-table-column
             width="120"
@@ -78,21 +78,21 @@ export default {
           txid: burn.transactionHash,
           url: `https://bscscan.com/tx/${burn.transactionHash}`,
         };
-        if(recBurns.buys.length>i){
-          item.bnb = ethers.utils.formatEther(recBurns.buys[i].value)
+        if (recBurns.buys.length > i) {
+          item.bnb = ethers.utils.formatEther(recBurns.buys[i].value);
         }
-        res.push(item)
+        res.push(item);
       }
       return res;
     },
-    bnbUsed: function(){
-      var bnb = ethers.BigNumber.from(0)
-      for(var i in recBurns.buys){
-        const buy = recBurns.buys[i]
-        bnb = bnb.add(buy.value)
+    bnbUsed: function () {
+      var bnb = ethers.BigNumber.from(0);
+      for (var i in recBurns.buys) {
+        const buy = recBurns.buys[i];
+        bnb = bnb.add(buy.value);
       }
-      return ethers.utils.formatEther(bnb)
-    }
+      return ethers.utils.formatEther(bnb);
+    },
   }),
   mounted() {
     this.loadInfo();
