@@ -26,6 +26,11 @@
             prop="time"
             label="Burn Time"
           ></el-table-column>
+          <el-table-column width="120" label="BNB Amount">
+            <template slot-scope="scope">
+              <RichNumber :data="scope.row.bnb"></RichNumber>
+            </template>
+          </el-table-column>
           <el-table-column width="160" label="PBP Amount">
             <template slot-scope="scope">
               <RichNumber :data="scope.row.amount"></RichNumber>
@@ -66,13 +71,16 @@ export default {
       const res = [];
       for (var i in recBurns.burns) {
         const burn = recBurns.burns[i];
-        console.log("burn=", burn);
-        res.push({
+        const item = {
           amount: ethers.utils.formatUnits(burn.args[2], "gwei"), // TODO: gwei 刚好对应PBP的decimals，不可用于其它Token
           time: new Date(burn.timestamp * 1000).toLocaleDateString("zh-CN"), // TODO: 应从系统locale读取
           txid: burn.transactionHash,
           url: `https://bscscan.com/tx/${burn.transactionHash}`,
-        });
+        };
+        if(recBurns.buys.length>i){
+          item.bnb = ethers.utils.formatEther(recBurns.buys[i].value)
+        }
+        res.push(item)
       }
       return res;
     },
