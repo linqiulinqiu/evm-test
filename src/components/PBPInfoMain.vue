@@ -13,6 +13,7 @@
           </li>
           <li>当前发行总量：<RichNumber :data="totalSupply"></RichNumber></li>
           <li>官方销毁总量：<RichNumber :data="totalBurnt"></RichNumber></li>
+          <li>回购消耗BNB：<RichNumber :data="bnbUsed"></RichNumber></li>
         </ul>
       </el-col>
     </el-col>
@@ -84,6 +85,14 @@ export default {
       }
       return res;
     },
+    bnbUsed: function(){
+      var bnb = ethers.BigNumber.from(0)
+      for(var i in recBurns.buys){
+        const buy = recBurns.buys[i]
+        bnb = bnb.add(buy.value)
+      }
+      return ethers.utils.formatEther(bnb)
+    }
   }),
   mounted() {
     this.loadInfo();
