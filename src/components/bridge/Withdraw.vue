@@ -21,32 +21,7 @@
           <el-col class="follow">
             <el-col class="withdraw-addr">
               <span class="font"> {{ this.withdrawAddr }} </span>
-              <a
-                class="block-link"
-                :href="
-                  'https://alltheblocks.net/' +
-                  this.coinInfo.name.toLowerCase() +
-                  '/address/' +
-                  this.withdrawAddr
-                "
-              ></a>
-              <el-link
-                icon="../../assets/image/External_link.svg"
-                :href="
-                  'https://alltheblocks.net/' +
-                  this.coinInfo.name.toLowerCase() +
-                  '/address/' +
-                  this.withdrawAddr
-                "
-                target="_blank"
-              >
-                <i
-                  src="../../assets/image/external_link.svg"
-                  alt="Alltheblock
-                  browser link"
-                >
-                </i>
-              </el-link>
+              <LinkIcon :url="addrLink"></LinkIcon>
               <el-button
                 style="float: right"
                 icon="el-icon-edit"
@@ -175,16 +150,26 @@ import { mapState } from "vuex";
 import market from "../../market";
 import BridgeFee from "./BridgeFee.vue";
 import debounce from "lodash/debounce";
+import LinkIcon from "../lib/LinIcon.vue";
 
 export default {
   components: {
     BridgeFee,
+    LinkIcon,
   },
   props: ["curNFT", "coinInfo", "coinMap"],
   computed: mapState({
     baddr: "baddr",
     WBalance: "WBalance",
     current: "current",
+    addrLink() {
+      const url =
+        "https://alltheblocks.net/" +
+        this.coinInfo.name.toLowerCase() +
+        "/address/" +
+        this.withdrawAddr;
+      return url;
+    },
     withdrawAddr(state) {
       const pbxs = this.curNFT.pbxs;
       const cointy = this.current.coinType;

@@ -5,19 +5,27 @@
         <li>
           合约地址：<a target="_blank" :href="tokenUrl()">{{ pbpAddress }}</a>
         </li>
-        <li>当前发行总量：{{ totalSupply }}</li>
-        <li>官方销毁总量：{{ totalBurnt }}</li>
+        <li>当前发行总量：<RichNumber :data="totalSupply"></RichNumber></li>
+        <li>官方销毁总量：<RichNumber :data="totalBurnt"></RichNumber></li>
       </ul>
     </el-col>
     <el-col>
       <p v-if="burns.length == 0">Loading</p>
       <el-table strip v-else :data="burns" style="width: 100%">
         <el-table-column label="withdraw history">
-          <el-table-column prop="time" label="Burn Time"></el-table-column>
-          <el-table-column prop="amount" label="PBP Amount"></el-table-column>
+          <el-table-column
+            width="120"
+            prop="time"
+            label="Burn Time"
+          ></el-table-column>
+          <el-table-column label="PBP Amount">
+            <template slot-scope="scope">
+              <RichNumber :data="scope.row.amount"></RichNumber>
+            </template>
+          </el-table-column>
           <el-table-column label="TX">
             <template slot-scope="scope">
-              <a :href="scope.row.url">{{ scope.row.txid }}</a>
+              <p>{{ scope.row.txid }} <LinkIcon :url="scope.row.url" /></p>
             </template>
           </el-table-column>
         </el-table-column>
@@ -30,14 +38,18 @@ import { mapState } from "vuex";
 import { ethers } from "ethers";
 import tokens from "../tokens";
 import recBurns from "../rec-burns.json";
-
+import RichNumber from "./lib/RichNumber.vue";
+import LinkIcon from "./lib/LinIcon.vue";
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export default {
   name: "PBPInfoMain",
-  components: {},
+  components: {
+    RichNumber,
+    LinkIcon,
+  },
   computed: mapState({
     bsc: "bsc",
     burns: function () {
