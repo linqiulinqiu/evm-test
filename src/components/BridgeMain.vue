@@ -42,7 +42,7 @@
           </el-col>
 
           <el-col :lg="{ span: 17 }" :span="24">
-            <el-tabs>
+            <el-tabs class="min-height">
               <el-tab-pane :label="$t('deposit')"
                 ><Deposit :curNFT="this.curNFT" :coinInfo="coinInfo"
               /></el-tab-pane>

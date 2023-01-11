@@ -114,8 +114,12 @@ ul li {
 }
 
 /* /* tab 标签页面 */
-.el-tabs {
+.min-height {
     min-height: 500px;
+
+}
+
+.el-tabs {
     position: relative;
     color: #fff;
 }
