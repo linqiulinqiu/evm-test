@@ -5,8 +5,12 @@ ul li {
 
 .font {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
+}
+
+.center {
+    text-align: center;
 }
 
 .color-p {
@@ -227,4 +231,23 @@ ul li {
     overflow: hidden;
     box-sizing: border-box;
     border-bottom: 1px solid #909399;
+}
+
+
+.el-table,
+.el-table__expanded-cell,
+.el-table__header-wrapper,
+.el-table th,
+.el-table tr {
+    background-color: transparent !important;
+    color: rgb(255, 255, 255);
+}
+
+.el-table thead {
+    background-color: #3739435c;
+}
+
+
+.el-table__body tr:hover>td {
+    background-color: #4d4f57b9 !important;
 }

@@ -1,35 +1,45 @@
 <template>
   <el-col>
-    <el-col>
-      <ul>
-        <li>
-          合约地址：<a target="_blank" :href="tokenUrl()">{{ pbpAddress }}</a>
-        </li>
-        <li>当前发行总量：<RichNumber :data="totalSupply"></RichNumber></li>
-        <li>官方销毁总量：<RichNumber :data="totalBurnt"></RichNumber></li>
-      </ul>
+    <el-col class="token-info">
+      <el-col :span="5" :offset="1" :xs="{ offset: 0 }">
+        <h2>PBP当前发行状态</h2>
+      </el-col>
+      <el-col :span="18">
+        <ul>
+          <li>
+            合约地址：<a class="font" target="_blank" :href="tokenUrl()">{{
+              pbpAddress
+            }}</a>
+          </li>
+          <li>当前发行总量：<RichNumber :data="totalSupply"></RichNumber></li>
+          <li>官方销毁总量：<RichNumber :data="totalBurnt"></RichNumber></li>
+        </ul>
+      </el-col>
     </el-col>
     <el-col>
       <p v-if="burns.length == 0">Loading</p>
-      <el-table strip v-else :data="burns" style="width: 100%">
-        <el-table-column label="withdraw history">
+      <el-col class="token-info" v-else>
+        <h2 class="center">Burned</h2>
+        <el-table id="history" :data="burns" style="width: 100%">
           <el-table-column
             width="120"
             prop="time"
             label="Burn Time"
           ></el-table-column>
-          <el-table-column label="PBP Amount">
+          <el-table-column width="160" label="PBP Amount">
             <template slot-scope="scope">
               <RichNumber :data="scope.row.amount"></RichNumber>
             </template>
           </el-table-column>
           <el-table-column label="TX">
             <template slot-scope="scope">
-              <p>{{ scope.row.txid }} <LinkIcon :url="scope.row.url" /></p>
+              <p class="font">
+                {{ scope.row.txid }} <LinkIcon :url="scope.row.url" />
+              </p>
             </template>
           </el-table-column>
-        </el-table-column>
-      </el-table>
+        </el-table>
+      </el-col>
     </el-col>
   </el-col>
 </template>
@@ -102,8 +112,10 @@ export default {
 };
 </script>
 <style scoped>
-.el-table {
-  text-align: center;
+.token-info {
+  margin-top: 20px;
+  background-color: #373943d5;
+  border-radius: 10px;
+  padding: 20px 5px;
 }
-</style>>
 </style>

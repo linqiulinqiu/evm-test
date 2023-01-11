@@ -14,7 +14,6 @@
         >
       </el-col>
       <el-col v-if="bsc.addr" :span="20" :offset="2">
-        <h4>PBP当前发行状态</h4>
         <PBPInfoMain />
       </el-col>
       <el-col class="text-center" v-else>
@@ -39,7 +38,6 @@ export default {
 <style scoped>
 .el-main {
   font-size: 14px;
-  font-family: "sans-serif", "monospace";
 }
 .token-info {
   margin-top: 20px;
