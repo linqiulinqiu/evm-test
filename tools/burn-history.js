@@ -16,7 +16,7 @@ async function load_burns(bsc, ctr, recs){
     const burns = recs.burns
     const buys = recs.buys
     const filterBurn = ctr.filters.Transfer(teamAddr,ethers.constants.AddressZero)
-    const checkStep = 2000
+    const checkStep = 1000
     const buyBlocks = 1000
     try {
         const stepEnd = Math.min(burnEnd, burnBegin+checkStep-1)
@@ -32,12 +32,18 @@ async function load_burns(bsc, ctr, recs){
             for(var bi in bevents){
                 const be = bevents[bi]
                 if(be.args.value.eq(evt.args.value)){
-                    const tx = await bsc.provider.getTransaction(be.transactionHash)
-                    if(tx){
-                        console.log('tx', be.transactionHash, 'found')
-                        recs.buys.push(tx)
-                        recs.burns.push(evt)
-                        break
+                    console.log('try load swap tx', be.transactionHash)
+                    while(true){
+                        const tx = await bsc.provider.getTransaction(be.transactionHash)
+                        if(tx){
+                            console.log('\tfound')
+                            recs.buys.push(tx)
+                            recs.burns.push(evt)
+                            break
+                        }else{
+                            console.log('\tnot found! keep checking')
+                            await sleep(5000)
+                        }
                     }
                 }
             }
