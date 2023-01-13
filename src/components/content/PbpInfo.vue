@@ -1,34 +1,36 @@
 <template>
   <el-col>
-    <el-col :span="5" :offset="1" :xs="{ offset: 0 }">
+    <el-col :span="3" :offset="1" :xs="{ span: 0, offset: 0 }">
       <h1>PBP</h1>
       <h3>PlotBridge Point</h3>
     </el-col>
-    <el-col :span="18">
-      <el-tabs id="pbpInfo" tab-position="left" style="height: 200px">
-        <el-tab-pane :label="$t('pbp-role')">
+    <el-col :span="18" :xs="{ span: 24, offset: 0 }">
+      <el-tabs id="pbpInfo" tab-position="left" style="min-height: 200px">
+        <el-tab-pane :label="this.$t('pbp-role')">
           <p>
             <span>
-              <p v-for="line in $t('pbp-info-msgs')">
+              <p v-for="line in this.$t('pbp-info-msgs')" :key="line">
                 {{ line }}
               </p>
             </span>
           </p>
         </el-tab-pane>
-        <el-tab-pane :label="$t('pbp-issue-rule')">
-          <p>
-            <span>
-              <p v-for="line in $t('pbp-issue-rule-msgs')">
-                {{ line  }}
-              </p>
-             </span>
-          </p>
+        <el-tab-pane :label="this.$t('pbp-issue-rule')">
+          <el-col class="pbp-rule">
+            <p>
+              <span>
+                <p v-for="line in this.$t('pbp-issue-rule-msgs')" :key="line">
+                  {{ line }}
+                </p>
+              </span>
+            </p>
+          </el-col>
         </el-tab-pane>
-        <el-tab-pane :label="$t('pbp-price-support')">
+        <el-tab-pane :label="this.$t('pbp-price-support')">
           <p>
             <span>
-              <p v-for="line in $t('pbp-price-support-msgs')">
-                {{ line  }}
+              <p v-for="line in this.$t('pbp-price-support-msgs')" :key="line">
+                {{ line }}
               </p>
             </span>
           </p>
@@ -37,5 +39,11 @@
     </el-col>
   </el-col>
 </template>
+<script>
+</script>
 <style scoped>
+.pbp-rule {
+  /* overflow-y: scroll; */
+  /* height: 200px; */
+}
 </style>
