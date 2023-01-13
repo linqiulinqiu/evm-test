@@ -89,6 +89,10 @@
     "home-title":"Welcome to the PlotBridge beta version",
     "home-news":[
         {
+            "ts":"2023-01-13",
+            "msg":"Happy New Year! We are celebrating the annual revamp of our website and have added support for two new coins: HDDcoin and Flax, we look forward to your participation."
+        },
+        {
             "ts":"2022-06-02",
             "msg":"We have made a simple tool for XCC Deposit Activity participants to browse their score and ranking, at: https://xcc-mints.plotbridge.io"
         },
@@ -177,7 +181,7 @@
         "Total: 1,000,000,000 PBP",
         "Decimals: 9",
         "Official Liquidity Pair: 20 BNB-30,000,000 PBP LP on PancakeSwap",
-        "Token Allocation Ratio: 36% liquidity bonus, 14.5% initial liquidity provision, 8% community, 15.5% team, 18% new projects, 4% each PBT and Wcion destructionj bonus",
+        "Token Allocation Ratio: 36% liquidity bonus, 14% initial liquidity provision, 8.5% community, 15.5% team, 18% new projects, 4% each PBT and Wcion destructionj bonus",
         "Token lock: pre-sale funds, community pre-reward funds, initial liquidity provision funds are unlocked from the very beginning, liquidity reward funds are unlocked on a daily basis, team income and community funds are unlocked on a weekly basis, new project funds are unlocked on demand (with the starting point of not generating a concentrated sell-off), PBT and Wcion burning reward are unlocked on a weekly basis.",
         "Liquidity Incentive Funds: in 5 phases, with each phase issuance of 72,000,000 PBP, with each phase issuance of:",
         "-- 800,000 PBP issues daily from day 0 to 90 for 90 days,",
