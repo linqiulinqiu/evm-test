@@ -8,7 +8,8 @@
         <PBPInfoMain />
       </el-col>
       <el-col class="text-center" v-else>
-        Connect wallet for a list of PBP buy-back and burn history.
+        <p></p>
+        <h2>{{ $t('look-info') }}</h2>
       </el-col>
     </el-main>
   </el-container>

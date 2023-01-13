@@ -2,7 +2,7 @@
   <el-col>
     <el-col class="token-info">
       <el-col :span="5" :offset="1" :xs="{ offset: 0 }">
-        <h2>PBP当前发行状态</h2>
+        <h2>{{ $t('pbp-issue-status') }}</h2>
       </el-col>
       <el-col :span="18">
         <ul>
