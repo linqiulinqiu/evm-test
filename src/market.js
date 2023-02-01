@@ -71,10 +71,19 @@ function loadCoinlist() {
 
 
 async function connect(commit,provider) {
-    try {
-        bsc = await pbwallet.connect(provider, true)
-    } catch (e) {
-        return e.message
+    while(true){
+        try {
+            bsc = await pbwallet.connect(provider, true)
+            break
+        } catch (e) {
+            if('detectedNetwork' in e){
+                const name = e.detectedNetwork.name
+                if(name=='bnb'||name=='bnbt'){
+                    continue
+                }
+            }
+            return e.message
+        }
     }
     if (bsc) {
         commit("setBsc", bsc)
