@@ -87,6 +87,14 @@ async function connect(commit,provider) {
     }
     if (bsc) {
         commit("setBsc", bsc)
+        if(window.ethereum){
+        window.ethereum.on('accountsChanged', function (accounts) {
+            window.location.reload()
+        });
+          window.ethereum.on('networkChanged', function(networkId){
+            window.location.reload()
+          });
+        }
         // await ListenToWCoin(commit)
         return bsc
     }
