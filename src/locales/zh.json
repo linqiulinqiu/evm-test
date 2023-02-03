@@ -189,10 +189,10 @@
        "代币锁定：预售资金、社区前期奖励资金、初始流动性提供资金一次性解锁，流动性奖励资金按日解锁，团队收入及社区资金按周解锁，新项目资金按需求解锁(以不产生集中抛售为出发点)，PBT和Wcion销毁按周解锁",
        "流动性奖励资金：分5个阶段，每阶段发行量为72,000,000 PBP，各阶段发行量分别为："
     ],
-    "issue-date":"阶段起始时间",
+    "issue-date":"阶段开始时间",
     "issue-time":"时长（天）",
-    "issue-stage":"阶段发行量",
-    "issue-amount":"每日发行量",
+    "issue-stage":"每日发行量",
+    "issue-amount":"每日解锁量",
     "issue-sum":"发行总数",
     "pbp-price-support":"价格支持",
     "pbp-price-support-msgs":[

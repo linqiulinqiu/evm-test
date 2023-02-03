@@ -189,9 +189,9 @@
     ],
     "issue-date":"Stage start time",
     "issue-time":"Duration(day)",
-    "issue-stage":"Daily issue",
-    "issue-amount":"Stage issue volume",
-    "issue-sum":" Total number of issue",
+    "issue-stage":"Daily issue volume",
+    "issue-amount":"Dayily unlock volume",
+    "issue-sum":" Total issue amount",
     "pbp-issue-status":"PBP Issuance Status",
     "pbp-price-support":"Price Support",
     "pbp-price-support-msgs":[
