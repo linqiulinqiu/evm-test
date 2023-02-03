@@ -1,5 +1,5 @@
 {
-  "checkedBlockNumber": 25232223,
+  "checkedBlockNumber": 25257198,
   "burns": [
     {
       "blockNumber": 18134388,
@@ -508,5 +508,5 @@
       "chainId": 56
     }
   ],
-  "chainBlockHeight": 25232223
+  "chainBlockHeight": 25281605
 }
