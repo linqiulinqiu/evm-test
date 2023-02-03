@@ -191,8 +191,8 @@
     ],
     "issue-date":"阶段开始时间",
     "issue-time":"时长（天）",
-    "issue-stage":"每日发行量",
-    "issue-amount":"每日解锁量",
+    "issue-stage":"每日其它发行量",
+    "issue-amount":"每日质押奖励",
     "issue-sum":"发行总数",
     "pbp-price-support":"价格支持",
     "pbp-price-support-msgs":[
