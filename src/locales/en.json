@@ -189,7 +189,7 @@
     ],
     "issue-date":"Stage start time",
     "issue-time":"Duration(day)",
-    "issue-stage":"Daily other issuance",
+    "issue-stage":"Daily issuance except staking reword",
     "issue-amount":"Dayily staking reward",
     "issue-sum":" Total issue amount",
     "pbp-issue-status":"PBP Issuance Status",

@@ -17,7 +17,7 @@ Date.prototype.addDays = function(days) {
 
 async function load_start(bsc, ctr){
     const start = await ctr.stakeStart()
-    const date = new Date(start.toNumber()*1000)
+    const date = new Date(start.toNumber() * 1000)
     return date
 }
 
@@ -36,11 +36,11 @@ async function main() {
     var infoP = []
     for (var i = 90; i <= 1440; i *= 2){
         var item = {}
+        item['date'] = date
         const stake_amount = mintCaps*72/1000;
         const stage_amount = mintCaps*99/1000;
         sum += stake_amount+stage_amount; 
         date = date.addDays(i)
-        item['date'] = date
         item['time'] = i
         item['stake'] = stake_amount/i
         item['stage'] = stage_amount / i
@@ -56,6 +56,7 @@ async function main() {
         }
         console.log("JSON data is saved.");
     })
+    console.log("info=",info )
 }
 
 main()
