@@ -30,6 +30,7 @@
                 :label="$t('issue-date')"
               ></el-table-column>
               <el-table-column
+                width="65"
                 prop="time"
                 :label="$t('issue-time')"
               ></el-table-column>
