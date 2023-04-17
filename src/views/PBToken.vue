@@ -2,6 +2,9 @@
   <el-container>
     <el-main class="pbptoken">
       <el-col class="token-info" :span="20" :offset="2">
+        <PbtInfo />
+      </el-col>
+      <el-col class="token-info" :span="20" :offset="2">
         <PbpInfo />
       </el-col>
       <el-col v-if="bsc.addr" :span="20" :offset="2">
@@ -9,20 +12,22 @@
       </el-col>
       <el-col class="text-center" v-else>
         <p></p>
-        <h2>{{ $t('look-info') }}</h2>
+        <h2>{{ $t("look-info") }}</h2>
       </el-col>
     </el-main>
   </el-container>
 </template>
 <script>
 import PBPInfoMain from "../components/PBPInfoMain.vue";
+import PbtInfo from "../components/content/PbtInfo.vue";
 import PbpInfo from "../components/content/PbpInfo.vue";
 import { mapState } from "vuex";
 export default {
-  name: "PBPToken",
+  name: "PBToken",
   components: {
     PBPInfoMain,
     PbpInfo,
+    PbtInfo,
   },
   computed: mapState({
     bsc: "bsc",
