@@ -9,7 +9,7 @@
   "add": "添加",
   "activities": "活动",
   "amount": "金额",
-
+  "buyback-bnb": "回购消耗BNB",
   "balance": "余额",
   "bridge": "桥梁",
   "buy": "购买",
@@ -52,6 +52,7 @@
   "doc": "文档",
   "data": "加载中......",
   "destroy": "销毁NFT",
+  "destroy-sum": "官方销毁总量",
   "dep-limit": "单次存款建议限额为",
   "dep-rate": "存款费率",
   "dep-minFee": "最小存款手续费",
@@ -175,7 +176,7 @@
   "no-mysale": "您没有售卖NFT",
   "not-start": "该功能将在预售结束后开启，请持续关注",
   "not-start-pre": "预售预计在4月24日开启，预售所得的BNB将全部用于PancakeSwap上的PBP-BNB流动性，此官方流动性将至少锁定三个月。同时，我们将确保PBP初始发行价格会高于预售最高价格。",
-
+  "now-issue-sum": "当前发行总量",
   "onSale": "正在售卖",
   "old-balance": "旧代币余额",
   "or": "或者",
@@ -210,6 +211,8 @@
   "issue-stage": "每日除质押奖励外的解锁量",
   "issue-amount": "每日质押奖励",
   "issue-sum": "发行总数",
+  "issue-ctr-addr": "合约地址",
+
   "price-support": "价格支持",
   "pbp-price-support-msgs": [
     "项目团队提供PBP初始流动性，并确保长时间锁定",

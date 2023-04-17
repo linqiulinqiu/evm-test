@@ -15,6 +15,7 @@
   "buy": "Buy",
   "burn": "burn",
   "burn-date": "Burn date",
+  "buyback-bnb": "Repurchase Consumption Of BNB",
   "bind": "Bind",
   "beyond-limit": "After the amount limit is exceeded, the transaction time will increase significantly, please be patient",
   "bind-waddr": "Bind withdraw address",
@@ -57,6 +58,7 @@
   "doc": "Doc",
   "data": "Loading...",
   "destroy": "Destroy NFT",
+  "destroy-sum": "Total Official Destruction",
   "dep-rebind": "Unable to rebind deposit address,please refresh the page.",
   "dp-xcc": "Deposite XCC coin into Plotbridge, and win the reward of PBP",
   "destroy-tips": "Before destroying, please make sure that no deposit or withdraw with this NFT within five minutes. </br>After destruction, all access addresses bound to this NFT will be invalid.</br>Please confirm whether to destroy this NFT?",
@@ -176,7 +178,7 @@
   "no-mysale": "Can't find any of your selling PBT",
   "not-start": "This feature will be available after pre-sale completed, please stay tuned",
   "not-start-pre": "Pre-sale is expected to start on April 24th, all the BNB received in this pre-sale will be used to provide official PBP-BNB liquidity on pancakes. We guarantee this official liquidity pool will be locked up for at least 3 months, and the initial price of PBP will be higher than the highest pre-sale price. Please stay tuned.",
-
+  "now-issue-sum": "Total Current Issue",
   "old-balance": "Old Token Balance",
   "or": "OR",
   "openNFT": "Please select a nft first",
@@ -211,6 +213,8 @@
   "issue-stage": "Daily issuance except staking reword",
   "issue-amount": "Dayily staking reward",
   "issue-sum": " Total issue amount",
+  "issue-ctr-addr": "Contract Address",
+
   "pbp-issue-status": "PBP Issuance Status",
   "price-support": "Price Support",
   "pbp-price-support-msgs": [
