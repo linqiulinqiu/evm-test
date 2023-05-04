@@ -204,8 +204,8 @@
     "Liquidity Incentive Funds: in 5 phases, with each phase issuance of 72,000,000 PBP, with each phase issuance of:"
   ],
   "pbt-issue-rule-msgs": [
-    "The first 500 are replenished in a timely manner, and then regularly replenished at a quantitative price, with users casting independently and providing a trading market to facilitate free purchase and sale.",
-    "The PBT minting price (in BNB) is linked to the number of coins supported by the system (COIN_TYPES) when minting PBTs: price = 0.01 + (COIN_TYPES-2)*0.001"
+    "The initial 500 PBTs have a fixed price of 0.01BNB, after that the PBT issuance and price rules are not yet determined, but it is certain that the subsequent PBT minting price will not be lower than 0.01BNB",
+    "Users can mint PBT independently or buy it from the market. Officials provide a trading market to facilitate free transfer, purchase and sale."
   ],
   "token-role": "Role",
   "issue-date": "Stage start time",
