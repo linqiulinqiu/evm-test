@@ -2,7 +2,7 @@
   <el-col>
     <el-col :span="3" :offset="1" :xs="{ span: 0, offset: 0 }">
       <h1>PBT</h1>
-      <h3>PlotBridge Truck</h3>
+      <h3>PlotBridge Transporter</h3>
     </el-col>
     <el-col :span="18" :xs="{ span: 24, offset: 0 }">
       <el-tabs id="pbtInfo" tab-position="left" style="min-height: 120px">
