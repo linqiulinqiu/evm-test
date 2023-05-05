@@ -206,8 +206,8 @@
   "pbt-issue-rule-msgs": [
     "The initial 500 PBTs have a fixed price of 0.01BNB, after that the PBT issuance and price rules are not yet determined, but it is certain that the subsequent PBT minting price will not be lower than 0.01BNB.",
     "Users can mint PBT independently or buy it from the market.",
-    "PB provides a simple trading platform to facilitate the free transfer, purchase and sale of PBTs.",
-    "Users can choose their own trading platform for trading or view PBT on a third party platform",
+    "A simple trading platform is provided here for token owners to transfer and trade PBT freely.",
+    "PBTs are standard ERC-721 tokens deployed on Binance Smart Chain, which is supported by most 3rd party NFT trading platforms.",
     {
       "url": "https://app.refinable.com/collections/plotbridgetransporter",
       "text": "View PBT Connection Info"

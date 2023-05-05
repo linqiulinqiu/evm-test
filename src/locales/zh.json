@@ -205,8 +205,8 @@
   "pbt-issue-rule-msgs": [
     "初始500个PBT的固定价格为0.01BNB，此后的PBT发行量和价格规则还未确定，但可以肯定的是，后续PBT铸造价格不会低于0.01BNB。",
     "使用者可以自主铸造PBT，也可以从市场购买。",
-    "PB提供一个简易的交易平台，方便PBT的自由转移、购买和销售。",
-    "用户可以自选交易平台进行交易，也可以在第三方平台查看PBT",
+    "这里提供了一个简单的交易平台，供代币所有者自由转让和交易PBT。",
+    "PBT是部署在Binance智能链上的标准ERC-721代币，被大多数第三方NFT交易平台所支持",
     {
       "url": "https://app.refinable.com/collections/plotbridgetransporter",
       "text": "查看PBT Connection Info"
