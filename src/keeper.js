@@ -54,7 +54,7 @@ function sleep(ms) {
 }
 
 async function nftBriefInfo(id) {
-    console.log("NFTid = ", id)
+    // console.log("NFTid = ", id)
     await sleep(1000)
     const uri = await bsc.ctrs.pbt.tokenURI(parseInt(id))
     let meta = {}
