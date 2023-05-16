@@ -10,7 +10,7 @@
       >
         <h2 class="center">
           <p v-if="baddr">
-            {{ $t("total-lock") }}
+            {{ $t("total-lock") }}:
             <span v-if="tvl != 0" class="color-m">
               $ <RichNumber :data="String(tvl)"></RichNumber>
             </span>
