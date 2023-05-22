@@ -8,15 +8,16 @@
         :sm="{ span: 18, offset: 3 }"
         :xs="{ span: 18, offset: 1 }"
       >
-        <h2 class="center">
+        <h3 class="center">
           <p v-if="baddr">
             {{ $t("total-lock") }}:
             <span v-if="tvl != 0" class="color-m">
               $ <RichNumber :data="String(tvl)"></RichNumber>
+              <!-- $ {{ tvl  }} -->
             </span>
             <span v-else class="el-icon-loading"></span>
           </p>
-        </h2>
+        </h3>
         <h2>{{ $t("home-title") }}</h2>
         <el-col class="message">
           <el-timeline id="news-timeline" class="scrollbar">
